@@ -19,6 +19,10 @@
     if (!self.cartArr)
         self.cartArr = [[NSMutableArray alloc] init];
     
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
+                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(segueToCheckout)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -26,6 +30,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)segueToCheckout {
+    [self performSegueWithIdentifier:@"toCheckout" sender:self];
+}
 
 
 -(void)viewWillAppear:(BOOL)animated {

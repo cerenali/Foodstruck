@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Map-->
@@ -173,14 +173,33 @@
                             <outlet property="delegate" destination="DhQ-Cr-otw" id="fCX-hZ-xey"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="ORw-pr-XVi"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="3To-Zh-kQE" kind="show" identifier="toCheckout" id="NnO-Ud-ofJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rH1-6q-J0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3207" y="1517"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ATR-U3-a3R">
+            <objects>
+                <viewController id="3To-Zh-kQE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rUq-A4-ku1"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ND-QP-tPd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zPR-u9-93M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFg-Uz-yh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3835" y="1517"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sv0-qE-jKQ">
