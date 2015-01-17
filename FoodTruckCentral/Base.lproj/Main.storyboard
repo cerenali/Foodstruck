@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Map-->
@@ -183,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="3207" y="1517"/>
         </scene>
-        <!--View Controller-->
+        <!--Checkout View Controller-->
         <scene sceneID="ATR-U3-a3R">
             <objects>
-                <viewController id="3To-Zh-kQE" sceneMemberID="viewController">
+                <viewController id="3To-Zh-kQE" customClass="CheckoutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rUq-A4-ku1"/>
                         <viewControllerLayoutGuide type="bottom" id="4ND-QP-tPd"/>
@@ -194,12 +195,101 @@
                     <view key="view" contentMode="scaleToFill" id="zPR-u9-93M">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-IS-z7t">
+                                <rect key="frame" x="221" y="236" width="159" height="30"/>
+                                <state key="normal" title="Pay with Google Wallet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnu-yC-qk4">
+                                <rect key="frame" x="224" y="427" width="153" height="30"/>
+                                <state key="normal" title="Delivery by Postmates">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="IYw-X0-eby" kind="show" id="GbD-bt-BFr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehb-XV-LTt">
+                                <rect key="frame" x="164" y="156" width="37" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="bgg-xD-bCI"/>
+                                    <constraint firstAttribute="width" constant="37" id="ez3-c5-Dyf"/>
+                                    <constraint firstAttribute="height" constant="221" id="za5-k5-NK1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bgg-xD-bCI"/>
+                                        <exclude reference="za5-k5-NK1"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="bgg-xD-bCI"/>
+                                        <exclude reference="ez3-c5-Dyf"/>
+                                        <include reference="za5-k5-NK1"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0ZK-IS-z7t" firstAttribute="top" secondItem="rUq-A4-ku1" secondAttribute="bottom" constant="172" id="1KX-6b-VkQ"/>
+                            <constraint firstItem="Ehb-XV-LTt" firstAttribute="top" secondItem="zPR-u9-93M" secondAttribute="topMargin" constant="50" id="2pq-Rn-t9b"/>
+                            <constraint firstItem="4ND-QP-tPd" firstAttribute="top" secondItem="fnu-yC-qk4" secondAttribute="bottom" constant="99" id="GIQ-Hz-OrU"/>
+                            <constraint firstItem="fnu-yC-qk4" firstAttribute="centerX" secondItem="0ZK-IS-z7t" secondAttribute="centerX" id="eIm-zj-wgK"/>
+                            <constraint firstItem="Ehb-XV-LTt" firstAttribute="leading" secondItem="zPR-u9-93M" secondAttribute="leading" constant="164" id="ivo-gS-782"/>
+                            <constraint firstItem="Ehb-XV-LTt" firstAttribute="top" secondItem="rUq-A4-ku1" secondAttribute="bottom" constant="92" id="qHs-Bg-Pjw"/>
+                            <constraint firstItem="4ND-QP-tPd" firstAttribute="top" secondItem="Ehb-XV-LTt" secondAttribute="bottom" constant="379" id="scP-tN-0hE"/>
+                            <constraint firstItem="Ehb-XV-LTt" firstAttribute="leading" secondItem="fnu-yC-qk4" secondAttribute="leading" id="ssU-Og-Jqt"/>
+                            <constraint firstItem="0ZK-IS-z7t" firstAttribute="centerX" secondItem="zPR-u9-93M" secondAttribute="centerX" id="uxk-kC-IGA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2pq-Rn-t9b"/>
+                                <exclude reference="ssU-Og-Jqt"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="2pq-Rn-t9b"/>
+                                <exclude reference="ivo-gS-782"/>
+                                <exclude reference="qHs-Bg-Pjw"/>
+                                <include reference="ssU-Og-Jqt"/>
+                                <exclude reference="scP-tN-0hE"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="googleWalletButton" destination="0ZK-IS-z7t" id="MMz-wv-RWq"/>
+                        <outlet property="postmatesDeliveryButton" destination="fnu-yC-qk4" id="hfy-zZ-c3p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFg-Uz-yh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3835" y="1517"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DdH-bC-kM1">
+            <objects>
+                <viewController id="IYw-X0-eby" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Jz-hs-8BK"/>
+                        <viewControllerLayoutGuide type="bottom" id="cTO-BP-G2n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eXL-W6-gkV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0HV-AZ-bso" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4474" y="1517"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sv0-qE-jKQ">
