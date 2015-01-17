@@ -23,8 +23,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *cartButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    UIBarButtonItem *cartButton = [[UIBarButtonItem alloc] initWithTitle:@"Cart" style:UIBarButtonItemStylePlain target:self action:nil];//[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    cartButton.target = self;
+    cartButton.action = @selector(segueToCart);
+    
     self.navigationItem.rightBarButtonItem = cartButton;
+}
+
+-(void)segueToCart {
+    [self performSegueWithIdentifier:@"toCart" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

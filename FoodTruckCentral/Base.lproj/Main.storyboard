@@ -130,10 +130,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="mwt-lX-Ju4"/>
+                    <connections>
+                        <segue destination="DhQ-Cr-otw" kind="show" identifier="toCart" id="hgY-z4-jBw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hn-Fa-mK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2524" y="1440"/>
+            <point key="canvasLocation" x="2508" y="1468"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="dGQ-iG-tXu">
