@@ -36,7 +36,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="List" id="d0R-aj-Mzn">
                             <connections>
-                                <segue destination="ulI-Qt-GhU" kind="show" identifier="toListView" id="cVe-Ll-2wt"/>
+                                <segue destination="Uwn-Im-VUB" kind="presentation" identifier="toListView" id="cVe-Ll-2wt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -55,6 +55,7 @@
             <objects>
                 <tableViewController id="ulI-Qt-GhU" customClass="TruckListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9jg-rG-Hcq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -83,6 +84,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="OVB-OJ-Y3U" kind="show" identifier="toTruckDetailView" id="rlF-Vx-vfG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -101,13 +105,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bow-Rs-l2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hzW-ik-Bgh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2167.5" y="389"/>
+            <point key="canvasLocation" x="2979" y="389"/>
         </scene>
         <!--Truck Detail Table View Controller-->
         <scene sceneID="ImL-Eg-xaN">
             <objects>
                 <tableViewController id="OVB-OJ-Y3U" customClass="TruckDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vxu-0g-vLB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -126,7 +131,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hn-Fa-mK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2958" y="389"/>
+            <point key="canvasLocation" x="3770" y="389"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sv0-qE-jKQ">
@@ -145,6 +150,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qH-cM-5sW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="505" y="389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c0E-oh-tUJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uwn-Im-VUB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C30-jo-gPs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ulI-Qt-GhU" kind="relationship" relationship="rootViewController" id="p5l-BG-1fF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NO9-XG-hXV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2167" y="389"/>
         </scene>
     </scenes>
 </document>

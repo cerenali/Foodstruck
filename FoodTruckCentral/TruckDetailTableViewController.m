@@ -22,6 +22,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,15 +35,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 2;
+//    return 1 + [self.truck.menu count];
+    return 2; // hardcode for now
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    if (section == 0) {
+    if (section == 0) { // info section
         return 2;
     } else if (section == 1) {
-        
+        NSInteger n = [self.truck.menu count];
+        for (NSString *key in self.truck.menu) {
+            n += [[self.truck.menu objectForKey:key] count];
+        }
+        return n;
     }
     
     return 0;
@@ -51,6 +58,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TruckDetailCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    if (!cell) {
+        NSLog(@">>configure cell TruckDetailView");
+    }
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 1) {
+            cell.textLabel.text = self.truck.name;
+        } else if (indexPath.row == 2) {
+            cell.textLabel.text = [NSString stringWithFormat:@"%.2f, %.2f",self.truck.coords.latitude, self.truck.coords.longitude];
+        }
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = @"menuuu";
+    }
     
     return cell;
 }

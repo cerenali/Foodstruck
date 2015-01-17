@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>07CEDFAE-D68F-4209-B3D6-6DBB8E03FEE4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FoodTruckCentral</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>94C7B6F3623F18BB07B17F3B52F3C2CBE36D9AEC</key>
+		<string>https://github.com/cerenali/FoodTruckCentral.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FoodTruckCentral.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>94C7B6F3623F18BB07B17F3B52F3C2CBE36D9AEC</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cerenali/FoodTruckCentral.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>94C7B6F3623F18BB07B17F3B52F3C2CBE36D9AEC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>94C7B6F3623F18BB07B17F3B52F3C2CBE36D9AEC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FoodTruckCentral</string>
+		</dict>
+	</array>
+</dict>
+</plist>

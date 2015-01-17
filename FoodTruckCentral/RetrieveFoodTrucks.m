@@ -12,7 +12,7 @@
 
 //sortType should be "name" or "owner" or "id" or "distance"
 -(id)initWithURL:(NSString*)url sortedBy:(NSString*)sortType {
-    Firebase *ref = [[Firebase alloc] initWithUrl:@"https://popping-fire-4216.firebaseio.com/"];
+    Firebase *ref = [[Firebase alloc] initWithUrl:url];
     [ref authAnonymouslyWithCompletionBlock:^(NSError *error, FAuthData *authData) {
         if (error) {
             NSLog(@"error connecting");
@@ -49,6 +49,8 @@
             
         }
     }];
+    
+    
     return self;
 }
 

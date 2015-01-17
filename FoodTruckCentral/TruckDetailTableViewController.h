@@ -13,5 +13,4 @@
 
 @property FoodTruckData *truck;
 
-
 @end

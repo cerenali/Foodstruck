@@ -25,8 +25,8 @@
     MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:self reuseIdentifier:@"TruckAnnotation"];
     
     annotationView.enabled = YES;
-    annotationView.canShowCallout = YES;
-
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
     return annotationView;
 }
 

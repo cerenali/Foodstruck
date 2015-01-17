@@ -8,7 +8,7 @@
 
 #import <MapKit/MapKit.h>
 
-@interface TruckAnnotationView : MKAnnotationView <MKAnnotation>
+@interface TruckAnnotationView : NSObject <MKAnnotation>
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;

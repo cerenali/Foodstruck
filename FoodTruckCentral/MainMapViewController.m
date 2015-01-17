@@ -10,6 +10,7 @@
 #import "FoodTruckData.h"
 #import "TruckAnnotationView.h"
 #import "TruckListTableViewController.h"
+#import "RetrieveFoodTrucks.h"
 
 @interface MainMapViewController ()
 
@@ -54,21 +55,49 @@
     [self.mapView setRegion:defaultRegion];
     
     // hard-coded data for now
-    CLLocationCoordinate2D coords1 = CLLocationCoordinate2DMake(38, -122.4167);
-    FoodTruckData *truck1 = [[FoodTruckData alloc] initWithName:@"Tang Chinese Food" withCoords:&coords1];
-    [self.foodTruckArr addObject:truck1];
+//    CLLocationCoordinate2D coords1 = CLLocationCoordinate2DMake(38, -122.4167);
+//    FoodTruckData *truck1 = [[FoodTruckData alloc] initWithName:@"Tang Chinese Food" withCoords:&coords1];
+//    [self.foodTruckArr addObject:truck1];
+    
+    NSString *firebaseURL = @"https://popping-fire-4216.firebaseio.com/";
+    Firebase *ref = [[Firebase alloc] initWithUrl:firebaseURL];
+    
+    [ref observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+//        NSLog(@"%@", snapshot.value);
+        if ([snapshot hasChildren]) {
+            for (FDataSnapshot *childSnap in snapshot.children) {
+//                NSLog(@"%@", childSnap.value);
+                FoodTruckData *tr = [[FoodTruckData alloc] initWithSnapshot:childSnap];
+                [self.foodTruckArr addObject:tr];
+            }
+            [self reloadAnnotations];
+        }
+    }];
+    
+//    RetrieveFoodTrucks *getTruckData = [[RetrieveFoodTrucks alloc] initWithURL:firebaseURL sortedBy:@"name"];
+    
+    // wait for data to load
+//    [NSThread sleepForTimeInterval:10];
+    
+//    self.foodTruckArr = [NSMutableArray arrayWithArray:[getTruckData getAllFoodTrucksAsArray]];
+    [self reloadAnnotations];
+    
+}
+
+-(void) reloadAnnotations {
     // iterate through foodTruckArr and create map annotations for each food truck
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     for (FoodTruckData *truck in self.foodTruckArr) {
-        NSLog(@"name: %@", truck.name);
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+//        NSLog(@"name: %@", truck.name);
+//        NSLog(@"lat, long: %f, %f", truck.coords.latitude, truck.coords.longitude);
         annotation.coordinate = truck.coords;
         annotation.title = truck.name;
         float dist = [truck getDistanceInMilesToLocation:self.locationManager.location];
         annotation.subtitle = [NSString stringWithFormat:@"%.2f mi",dist];
         [self.mapView addAnnotation:annotation];
         
-//        TruckAnnotationView *truckAnnotation = [[TruckAnnotationView alloc] initWithTitle:truck.name location:truck.coords];
-//        [self.mapView addAnnotation:truckAnnotation];
+        //        TruckAnnotationView *truckAnnotation = [[TruckAnnotationView alloc] initWithTitle:truck.name location:truck.coords];
+        //        [self.mapView addAnnotation:truckAnnotation];
     }
 }
 
@@ -113,7 +142,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"toListView"]) {
-        TruckListTableViewController *destination = [segue destinationViewController];
+        UINavigationController *navController = [segue destinationViewController];
+        TruckListTableViewController *destination = (TruckListTableViewController *)([navController viewControllers][0]);
         if (!destination.foodTruckArr)
             destination.foodTruckArr = [[NSMutableArray alloc] init];
         destination.foodTruckArr = self.foodTruckArr;

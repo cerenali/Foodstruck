@@ -8,6 +8,7 @@
 
 #import "TruckListTableViewController.h"
 #import "FoodTruckData.h"
+#import "TruckDetailTableViewController.h"
 
 @interface TruckListTableViewController ()
 
@@ -96,14 +97,17 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"toTruckDetailView"]) {
+        TruckDetailTableViewController *destination = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        destination.truck = [self.foodTruckArr objectAtIndex:indexPath.row];
+    }
 }
-*/
 
 @end

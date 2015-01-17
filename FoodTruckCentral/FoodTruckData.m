@@ -11,12 +11,12 @@
 @implementation FoodTruckData
 
 -(id) initWithSnapshot:(FDataSnapshot *)snapshot{
-    //childSnap = one, two, three,...
-    for (FDataSnapshot* childSnap in snapshot.children) {
-        if ([childSnap hasChildren]) {
+//    //childSnap = one, two, three,...
+//    for (FDataSnapshot* childSnap in snapshot.children) {
+//        if ([childSnap hasChildren]) {
             //childSnap1 = Menu, name, owner, coordinates, id
-            for (FDataSnapshot* childSnap1 in childSnap.children) {
-                NSLog(@">%@", childSnap1.key);
+            for (FDataSnapshot* childSnap1 in snapshot.children) {
+//                NSLog(@">%@", childSnap1.key);
                 if ([childSnap1.key isEqualToString:@"Menu"]) {
                     NSMutableDictionary *menu = [[NSMutableDictionary alloc] init];
                     //childSnap2=Categories
@@ -51,10 +51,10 @@
                     //childSnap2=coordinates
                     for (FDataSnapshot* childSnap2 in childSnap1.children) {
                         CLLocationCoordinate2D temp;
-                        if ([childSnap2.key isEqualToString:@"longitude"]) {
+                        if ([childSnap2.key isEqualToString:@"long"]) {
                             temp.longitude = [childSnap2.value doubleValue];
                         }
-                        if ([childSnap2.key isEqualToString:@"latitude"]) {
+                        if ([childSnap2.key isEqualToString:@"lat"]) {
                             temp.latitude = [childSnap2.value doubleValue];
                         }
                         
@@ -71,8 +71,8 @@
                     self.cellnum = childSnap1.value;
                 }
             }
-        }
-    }
+//        }
+//    }
     
     return self;
 }
@@ -103,8 +103,8 @@
     [dict setObject:self.cellnum forKey:@"cellnum"];
     
     NSMutableDictionary *coordinates = [[NSMutableDictionary alloc] init];
-    [coordinates setObject:[NSString stringWithFormat:@"%f", self.coords.latitude] forKey:@"latitude"];
-    [coordinates setObject:[NSString stringWithFormat:@"%f", self.coords.longitude] forKey:@"longitude"];
+    [coordinates setObject:[NSString stringWithFormat:@"%f", self.coords.latitude] forKey:@"lat"];
+    [coordinates setObject:[NSString stringWithFormat:@"%f", self.coords.longitude] forKey:@"long"];
     [dict setObject:coordinates forKey:@"coordinates"];
     
     
