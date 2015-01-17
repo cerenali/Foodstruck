@@ -55,7 +55,7 @@
     
     // hard-coded data for now
     CLLocationCoordinate2D coords1 = CLLocationCoordinate2DMake(38, -122.4167);
-    FoodTruckData *truck1 = [[FoodTruckData alloc] initWithName:@"Tang Chinese Food" withCoords:coords1];
+    FoodTruckData *truck1 = [[FoodTruckData alloc] initWithName:@"Tang Chinese Food" withCoords:&coords1];
     [self.foodTruckArr addObject:truck1];
     // iterate through foodTruckArr and create map annotations for each food truck
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];

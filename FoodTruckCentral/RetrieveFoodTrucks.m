@@ -10,7 +10,7 @@
 
 @implementation RetrieveFoodTrucks : NSObject
 
-//sortType should be "name" or "owner" or "coords"
+//sortType should be "name" or "owner" or "id" or "distance"
 -(id)initWithURL:(NSString*)url sortedBy:(NSString*)sortType {
     Firebase *ref = [[Firebase alloc] initWithUrl:@"https://popping-fire-4216.firebaseio.com/"];
     [ref authAnonymouslyWithCompletionBlock:^(NSError *error, FAuthData *authData) {
@@ -31,6 +31,12 @@
                                 key = truck.name;
                             } else if ([sortType isEqualToString:@"owner"]) {
                                 key = truck.owner;
+                            } else if ([sortType isEqualToString:@"id"]) {
+                                key = truck.identifier;
+                            } else if ([sortType isEqualToString:@"distance"]) {
+                                key =[[NSString alloc] initWithFormat:[NSString stringWithFormat:@"%f", truck.coords.latitude],
+                                                                      @",",
+                                                                      [NSString stringWithFormat:@"%f", truck.coords.longitude]];
                             }
                             [self.myData setObject:truck forKey:truck.name];
                         }

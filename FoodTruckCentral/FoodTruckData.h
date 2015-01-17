@@ -13,11 +13,16 @@
 
 @interface FoodTruckData : NSObject
 -(id)initWithSnapshot:(FDataSnapshot *)snapshot;
+-(id)initWithName:(NSString*)name withCoords:(CLLocationCoordinate2D*)coords;
 -(CLLocationDistance)getDistanceToLocation:(CLLocation*)location;
 -(float)getDistanceInMilesToLocation:(CLLocation*)location;
+-(NSMutableDictionary*)dictionaryToSend;
 
 @property NSString *name;
 @property CLLocationCoordinate2D coords;
 @property NSMutableDictionary *menu;
 @property NSString *owner;
+@property NSString *identifier;
+@property NSString *email;
+@property NSString *cellnum;
 @end
