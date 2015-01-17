@@ -121,7 +121,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem id="myq-f4-sGN">
-                                    <barButtonItem key="leftBarButtonItem" title="Back" id="Ffe-JI-XH4">
+                                    <barButtonItem key="leftBarButtonItem" title="Back to map" id="Ffe-JI-XH4">
                                         <connections>
                                             <segue destination="fDd-2X-Ktx" kind="unwind" unwindAction="unwindToSegue:" id="oI8-GJ-qaT"/>
                                         </connections>
