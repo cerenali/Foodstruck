@@ -89,8 +89,10 @@
         NSArray *foodDictArr = [self.truck.menu objectForKey:[menuKeys objectAtIndex:indexPath.section-1]];
         NSDictionary *foodDict = [foodDictArr objectAtIndex:indexPath.row];
         
-        cell.textLabel.text = [[foodDict allKeys] objectAtIndex:0];
-        cell.detailTextLabel.text = [[foodDict allValues] objectAtIndex:0];
+        NSString *itemName = [[foodDict allKeys] objectAtIndex:0];
+        cell.textLabel.text = itemName;
+        float price = [[foodDict objectForKey:itemName] floatValue] / 100;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", price];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
         [button addTarget:self action:@selector(addButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         cell.accessoryView = button;
