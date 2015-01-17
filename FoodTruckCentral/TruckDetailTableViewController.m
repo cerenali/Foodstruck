@@ -63,9 +63,9 @@
     }
     
     if (indexPath.section == 0) {
-        if (indexPath.row == 1) {
+        if (indexPath.row == 0) {
             cell.textLabel.text = self.truck.name;
-        } else if (indexPath.row == 2) {
+        } else if (indexPath.row == 1) {
             cell.textLabel.text = [NSString stringWithFormat:@"%.2f, %.2f",self.truck.coords.latitude, self.truck.coords.longitude];
         }
     } else if (indexPath.section == 1) {
@@ -73,6 +73,16 @@
     }
     
     return cell;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Information";
+    } else if (section == 1) {
+        return @"Menu";
+    }
+    
+    return @"";
 }
 
 /*
