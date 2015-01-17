@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Firebase/Firebase.h>
-#import "FoodTruckData.m"
+#import "FoodTruckData.h"
 
 @interface RetrieveFoodTrucks : NSObject
 
