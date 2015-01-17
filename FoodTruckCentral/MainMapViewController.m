@@ -156,7 +156,8 @@
         destination.foodTruckArr = self.foodTruckArr;
         destination.userLocation = self.locationManager.location;
     } else if ([[segue identifier] isEqualToString:@"toTruckDetailViewFromMap"]) {
-        TruckDetailTableViewController *destination = [segue destinationViewController];
+        UINavigationController *navController = [segue destinationViewController];
+        TruckDetailTableViewController *destination = (TruckDetailTableViewController *)([navController viewControllers][0]);
         
         MKAnnotationView *annotationView = sender;
         NSString *trName = annotationView.annotation.title;

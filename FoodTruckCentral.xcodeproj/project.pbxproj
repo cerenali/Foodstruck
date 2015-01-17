@@ -21,6 +21,7 @@
 		4B5C8A881A69F28C0020E5B5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C8A871A69F28C0020E5B5 /* MapKit.framework */; };
 		4B5C8A8B1A69FA4B0020E5B5 /* TruckAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */; };
 		4B5C8A8D1A6A03630020E5B5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */; };
+		69C5B5CB1A6B03B100C34DB7 /* CartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C5B5CA1A6B03B100C34DB7 /* CartTableViewController.m */; };
 		69D9950F1A6A528100B830CE /* RetrieveFoodTrucks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D9950E1A6A528100B830CE /* RetrieveFoodTrucks.m */; };
 		B7F7A85A4C695E0BC0F8FAC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7828C28D028CF23CBA432F3B /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,8 @@
 		4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckAnnotationView.m; sourceTree = "<group>"; };
 		4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6305D99B7DAC97D4A131A47E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		69C5B5C91A6B03B100C34DB7 /* CartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewController.h; sourceTree = "<group>"; };
+		69C5B5CA1A6B03B100C34DB7 /* CartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewController.m; sourceTree = "<group>"; };
 		69D9950D1A6A528100B830CE /* RetrieveFoodTrucks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetrieveFoodTrucks.h; sourceTree = "<group>"; };
 		69D9950E1A6A528100B830CE /* RetrieveFoodTrucks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetrieveFoodTrucks.m; sourceTree = "<group>"; };
 		7828C28D028CF23CBA432F3B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +142,8 @@
 				4B080CA31A6A172700CE1CB7 /* TruckListTableViewController.m */,
 				4B080CA51A6A2C0700CE1CB7 /* TruckDetailTableViewController.h */,
 				4B080CA61A6A2C0700CE1CB7 /* TruckDetailTableViewController.m */,
+				69C5B5C91A6B03B100C34DB7 /* CartTableViewController.h */,
+				69C5B5CA1A6B03B100C34DB7 /* CartTableViewController.m */,
 				4B5C8A681A69EC100020E5B5 /* Images.xcassets */,
 				4B5C8A651A69EC100020E5B5 /* Main.storyboard */,
 				4B5C8A6A1A69EC100020E5B5 /* LaunchScreen.xib */,
@@ -326,6 +331,7 @@
 				4B5C8A5E1A69EC100020E5B5 /* main.m in Sources */,
 				4B5C8A8B1A69FA4B0020E5B5 /* TruckAnnotationView.m in Sources */,
 				69D9950F1A6A528100B830CE /* RetrieveFoodTrucks.m in Sources */,
+				69C5B5CB1A6B03B100C34DB7 /* CartTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

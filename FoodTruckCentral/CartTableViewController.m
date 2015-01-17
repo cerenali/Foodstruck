@@ -1,26 +1,21 @@
 //
-//  TruckListTableViewController.m
-//  FoodTruckCentral
+//  CartTableViewController.m
+//  
 //
-//  Created by Alice Ren on 1/16/15.
-//  Copyright (c) 2015 JAAA. All rights reserved.
+//  Created by Joseph Cappadona on 1/17/15.
+//
 //
 
-#import "TruckListTableViewController.h"
-#import "FoodTruckData.h"
-#import "TruckDetailTableViewController.h"
+#import "CartTableViewController.h"
 
-@interface TruckListTableViewController ()
+@interface CartTableViewController ()
 
 @end
 
-@implementation TruckListTableViewController
+@implementation CartTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if (!self.foodTruckArr)
-        self.foodTruckArr = [[NSMutableArray alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -37,31 +32,26 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.foodTruckArr count];
+    return 0;
 }
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TruckCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
-    if (!cell) {
-        // TODO configure cell
-    }
-    
-    FoodTruckData *truck = [self.foodTruckArr objectAtIndex:indexPath.row];
-    float dist = [truck getDistanceInMilesToLocation:self.userLocation];
-
-    cell.textLabel.text = truck.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f mi",dist];
     
     return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -97,18 +87,14 @@
 }
 */
 
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"toTruckDetailView"]) {
-        UINavigationController *navController = [segue destinationViewController];
-        TruckDetailTableViewController *destination = (TruckDetailTableViewController *)([navController viewControllers][0]); //[segue destinationViewController];
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        destination.truck = [self.foodTruckArr objectAtIndex:indexPath.row];
-    }
 }
+*/
 
 @end
