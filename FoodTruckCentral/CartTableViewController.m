@@ -49,7 +49,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0) { // food section
-        return [self.cartArr count];
+        return [self.cartArr count] + 1;
     }
     
     return 0;
@@ -66,7 +66,9 @@
     if (indexPath.section == 0) {
         if (indexPath.row == [self.cartArr count]) { // last row: display total
             cell.textLabel.text = @"Total";
-            cell.detailTextLabel.text = @"fajsdklfjld";
+            float totalPrice = [self calculateTotalPrice];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", totalPrice];
+            cell.backgroundColor = [UIColor lightGrayColor];
         } else {
             NSDictionary *foodDict = [self.cartArr objectAtIndex:indexPath.row];
             NSString *itemName = [[foodDict allKeys] objectAtIndex:0];
@@ -79,25 +81,39 @@
     return cell;
 }
 
-/*
+-(float)calculateTotalPrice {
+    float total = 0;
+    for (NSDictionary *foodDict in self.cartArr) {
+        float price = [[foodDict objectForKey:[[foodDict allKeys] objectAtIndex:0]] floatValue] / 100;
+        total += price;
+    }
+    return total;
+}
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
+    if (indexPath.row == [self.cartArr count]) {
+        return NO;
+    }
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // can't delete last row
+    if (indexPath.row == [self.cartArr count]) {
+        return;
+    }
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.cartArr removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
