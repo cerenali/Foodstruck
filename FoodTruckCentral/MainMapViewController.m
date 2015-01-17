@@ -88,6 +88,7 @@
         float dist = [truck getDistanceInMilesToLocation:self.locationManager.location];
         annotation.subtitle = [NSString stringWithFormat:@"%.2f mi",dist];
         [self.mapView addAnnotation:annotation];
+        self.mapView.showsUserLocation = YES;
         
         //        TruckAnnotationView *truckAnnotation = [[TruckAnnotationView alloc] initWithTitle:truck.name location:truck.coords];
         //        [self.mapView addAnnotation:truckAnnotation];
@@ -101,6 +102,12 @@
 
 - (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation
 {
+    if (annotation == mapView.userLocation)
+    {
+        return nil;
+    }
+    
+    NSLog(@">>truck pin");
     MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinLocation"];
     
     newAnnotation.canShowCallout = YES;

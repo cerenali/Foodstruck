@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:towne_coords (1).gpx">
+   </FileRef>
+   <FileRef
       location = "group:FoodTruckCentral.xcodeproj">
    </FileRef>
    <FileRef
