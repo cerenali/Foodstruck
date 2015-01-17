@@ -52,8 +52,16 @@
     return self;
 }
 
--(NSMutableDictionary*)getAllFoodTrucks {
+-(NSMutableDictionary*)getAllFoodTrucksAsDictionary {
     return self.myData;
+}
+
+-(NSMutableArray*)getAllFoodTrucksAsArray {
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for (NSString *key in [self.myData allKeys]) {
+        [arr addObject:key];
+    }
+    return arr;
 }
 
 -(FoodTruckData*)getFoodTruckWithName:(NSString*)name {

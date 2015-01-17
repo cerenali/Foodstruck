@@ -15,7 +15,8 @@
 //sortType should be "name" or "owner" or "id" or "distance"
 -(id)initWithURL:(NSString*)url sortedBy:(NSString*)sortType;
 
--(NSMutableDictionary*)getAllFoodTrucks;
+-(NSMutableDictionary*)getAllFoodTrucksAsDictionary;
+-(NSMutableArray*)getAllFoodTrucksAsArray;
 -(FoodTruckData*)getFoodTruckWithName:(NSString*)name;
 
 @property NSMutableDictionary *myData;
