@@ -64,7 +64,7 @@
     return arr;
 }
 
--(FoodTruckData*)getFoodTruckWithName:(NSString*)name {
-    return [self.myData objectForKey:name];
+-(FoodTruckData*)getFoodTruckWithKey:(NSString*)key {
+    return [self.myData objectForKey:key];
 }
 @end
