@@ -17,7 +17,7 @@
 
 -(NSMutableDictionary*)getAllFoodTrucksAsDictionary;
 -(NSMutableArray*)getAllFoodTrucksAsArray;
--(FoodTruckData*)getFoodTruckWithName:(NSString*)name;
+-(FoodTruckData*)getFoodTruckWithKey:(NSString*)name;
 
 @property NSMutableDictionary *myData;
 @end
