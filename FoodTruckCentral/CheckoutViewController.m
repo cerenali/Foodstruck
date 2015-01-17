@@ -17,6 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    float totalPrice = [self calculateTotalPrice];
+    NSString *priceString = [NSString stringWithFormat:@"$%.2f", totalPrice];
+    self.priceLabel.text = priceString;
+}
+
+-(float)calculateTotalPrice {
+    float total = 0;
+    for (NSDictionary *foodDict in self.cartArr) {
+        float price = [[foodDict objectForKey:[[foodDict allKeys] objectAtIndex:0]] floatValue] / 100;
+        total += price;
+    }
+    return total;
 }
 
 - (void)didReceiveMemoryWarning {

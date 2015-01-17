@@ -11,5 +11,8 @@
 @interface CheckoutViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *postmatesDeliveryButton;
 @property (weak, nonatomic) IBOutlet UIButton *googleWalletButton;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
+@property NSArray *cartArr;
 
 @end
