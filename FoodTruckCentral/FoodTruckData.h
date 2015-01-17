@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <Firebase/Firebase.h>
 
 @interface FoodTruckData : NSObject
--(id)initWithName:(NSString *)name withCoords:(CLLocationCoordinate2D)coordinates;
+-(id)initWithSnapshot:(FDataSnapshot *)snapshot;
 -(CLLocationDistance)getDistanceToLocation:(CLLocation*)location;
 -(float)getDistanceInMilesToLocation:(CLLocation*)location;
 
 @property NSString *name;
 @property CLLocationCoordinate2D coords;
+@property NSMutableDictionary *menu;
+@property NSString *owner;
 @end

@@ -21,6 +21,8 @@
 		4B5C8A881A69F28C0020E5B5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C8A871A69F28C0020E5B5 /* MapKit.framework */; };
 		4B5C8A8B1A69FA4B0020E5B5 /* TruckAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */; };
 		4B5C8A8D1A6A03630020E5B5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */; };
+		69D9950F1A6A528100B830CE /* RetrieveFoodTrucks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D9950E1A6A528100B830CE /* RetrieveFoodTrucks.m */; };
+		B7F7A85A4C695E0BC0F8FAC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7828C28D028CF23CBA432F3B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,11 @@
 		4B5C8A891A69FA4B0020E5B5 /* TruckAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckAnnotationView.h; sourceTree = "<group>"; };
 		4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckAnnotationView.m; sourceTree = "<group>"; };
 		4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6305D99B7DAC97D4A131A47E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		69D9950D1A6A528100B830CE /* RetrieveFoodTrucks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetrieveFoodTrucks.h; sourceTree = "<group>"; };
+		69D9950E1A6A528100B830CE /* RetrieveFoodTrucks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetrieveFoodTrucks.m; sourceTree = "<group>"; };
+		7828C28D028CF23CBA432F3B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		85E023B036945CA9F3CF3CFD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +75,7 @@
 			files = (
 				4B5C8A8D1A6A03630020E5B5 /* CoreLocation.framework in Frameworks */,
 				4B5C8A881A69F28C0020E5B5 /* MapKit.framework in Frameworks */,
+				B7F7A85A4C695E0BC0F8FAC1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		143592F85F8C1ACB1D2D9648 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85E023B036945CA9F3CF3CFD /* Pods.debug.xcconfig */,
+				6305D99B7DAC97D4A131A47E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4B5C8A4F1A69EC100020E5B5 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +106,8 @@
 				4B5C8A5A1A69EC100020E5B5 /* FoodTruckCentral */,
 				4B5C8A741A69EC100020E5B5 /* FoodTruckCentralTests */,
 				4B5C8A591A69EC100020E5B5 /* Products */,
+				143592F85F8C1ACB1D2D9648 /* Pods */,
+				F1B90111DC2262C69FFE77B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +129,8 @@
 				4B5C8A631A69EC100020E5B5 /* ViewController.m */,
 				4B5C8A841A69EDB80020E5B5 /* FoodTruckData.h */,
 				4B5C8A851A69EDB80020E5B5 /* FoodTruckData.m */,
+				69D9950D1A6A528100B830CE /* RetrieveFoodTrucks.h */,
+				69D9950E1A6A528100B830CE /* RetrieveFoodTrucks.m */,
 				4B5C8A891A69FA4B0020E5B5 /* TruckAnnotationView.h */,
 				4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */,
 				4B5C8A811A69ED340020E5B5 /* MainMapViewController.h */,
@@ -152,6 +173,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F1B90111DC2262C69FFE77B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7828C28D028CF23CBA432F3B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B5C8A7B1A69EC100020E5B5 /* Build configuration list for PBXNativeTarget "FoodTruckCentral" */;
 			buildPhases = (
+				3F7FD9EF3DAD78C4B0B22FF0 /* Check Pods Manifest.lock */,
 				4B5C8A541A69EC100020E5B5 /* Sources */,
 				4B5C8A551A69EC100020E5B5 /* Frameworks */,
 				4B5C8A561A69EC100020E5B5 /* Resources */,
+				E7D832B8DE4A485EF7B42B9A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,6 +232,7 @@
 				TargetAttributes = {
 					4B5C8A571A69EC100020E5B5 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 2S3D8J8M3T;
 					};
 					4B5C8A701A69EC100020E5B5 = {
 						CreatedOnToolsVersion = 6.1;
@@ -247,6 +279,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F7FD9EF3DAD78C4B0B22FF0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7D832B8DE4A485EF7B42B9A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4B5C8A541A69EC100020E5B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -260,6 +325,7 @@
 				4B5C8A611A69EC100020E5B5 /* AppDelegate.m in Sources */,
 				4B5C8A5E1A69EC100020E5B5 /* main.m in Sources */,
 				4B5C8A8B1A69FA4B0020E5B5 /* TruckAnnotationView.m in Sources */,
+				69D9950F1A6A528100B830CE /* RetrieveFoodTrucks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +447,7 @@
 		};
 		4B5C8A7C1A69EC100020E5B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85E023B036945CA9F3CF3CFD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FoodTruckCentral/Info.plist;
@@ -392,6 +459,7 @@
 		};
 		4B5C8A7D1A69EC100020E5B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6305D99B7DAC97D4A131A47E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FoodTruckCentral/Info.plist;
