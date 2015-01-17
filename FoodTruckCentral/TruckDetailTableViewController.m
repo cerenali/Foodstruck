@@ -23,7 +23,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
+    UIBarButtonItem *cartButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    self.navigationItem.rightBarButtonItem = cartButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,20 +36,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-//    return 1 + [self.truck.menu count];
-    return 2; // hardcode for now
+    return 1 + [self.truck.menu count];
+//    return 2; // hardcode for now
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0) { // info section
         return 2;
-    } else if (section == 1) {
-        NSInteger n = [self.truck.menu count];
-        for (NSString *key in self.truck.menu) {
-            n += [[self.truck.menu objectForKey:key] count];
+    }
+    
+    int numMenuSections = (int)[self.truck.menu count];
+    NSArray *menuKeys = [self.truck.menu allKeys];
+    for (int i = 0; i < numMenuSections; i++) {
+        if (section == i+1) {
+            NSInteger ret = [[self.truck.menu objectForKey:[menuKeys objectAtIndex:i]] count];
+            return ret;
         }
-        return n;
     }
     
     return 0;
@@ -68,8 +72,13 @@
         } else if (indexPath.row == 1) {
             cell.textLabel.text = [NSString stringWithFormat:@"%.2f, %.2f",self.truck.coords.latitude, self.truck.coords.longitude];
         }
-    } else if (indexPath.section == 1) {
-        cell.textLabel.text = @"menuuu";
+    } else {
+        NSArray *menuKeys = [self.truck.menu allKeys];
+        
+        NSArray *foodDictArr = [self.truck.menu objectForKey:[menuKeys objectAtIndex:indexPath.section-1]];
+        NSDictionary *foodDict = [foodDictArr objectAtIndex:indexPath.row];
+        cell.textLabel.text = [[foodDict allKeys] objectAtIndex:0];
+        cell.detailTextLabel.text = [[foodDict allValues] objectAtIndex:0];
     }
     
     return cell;
@@ -78,8 +87,14 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return @"Information";
-    } else if (section == 1) {
-        return @"Menu";
+    }
+    
+    int numMenuSections = (int)[self.truck.menu count];
+    NSArray *menuKeys = [self.truck.menu allKeys];
+    for (int i = 0; i < numMenuSections; i++) {
+        if (section == i+1) {
+            return [menuKeys objectAtIndex:i];
+        }
     }
     
     return @"";

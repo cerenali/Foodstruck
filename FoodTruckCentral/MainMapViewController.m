@@ -54,11 +54,6 @@
     MKCoordinateRegion defaultRegion = MKCoordinateRegionMake(self.currentLocation.coordinate, defaultSpan);
     [self.mapView setRegion:defaultRegion];
     
-    // hard-coded data for now
-//    CLLocationCoordinate2D coords1 = CLLocationCoordinate2DMake(38, -122.4167);
-//    FoodTruckData *truck1 = [[FoodTruckData alloc] initWithName:@"Tang Chinese Food" withCoords:&coords1];
-//    [self.foodTruckArr addObject:truck1];
-    
     NSString *firebaseURL = @"https://popping-fire-4216.firebaseio.com/";
     Firebase *ref = [[Firebase alloc] initWithUrl:firebaseURL];
     
@@ -75,9 +70,6 @@
     }];
     
 //    RetrieveFoodTrucks *getTruckData = [[RetrieveFoodTrucks alloc] initWithURL:firebaseURL sortedBy:@"name"];
-    
-    // wait for data to load
-//    [NSThread sleepForTimeInterval:10];
     
 //    self.foodTruckArr = [NSMutableArray arrayWithArray:[getTruckData getAllFoodTrucksAsArray]];
     [self reloadAnnotations];
