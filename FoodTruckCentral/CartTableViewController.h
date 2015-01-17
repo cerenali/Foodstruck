@@ -10,4 +10,6 @@
 
 @interface CartTableViewController : UITableViewController
 
+@property NSMutableArray *cartArr;
+
 @end

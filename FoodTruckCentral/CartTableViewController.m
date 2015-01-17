@@ -32,26 +32,38 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 2; // one for food and one for buttons?
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
+    if (section == 1) { // static section (with buttons)
+        return 2;
+    }
+    if (section == 0) { // food section
+        return [self.cartArr count];
+    }
+    
     return 0;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CartItemCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    if (!cell) {
+        NSLog(@"error: cart tableview cell not configured");
+    }
+    
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"static???";
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = @"foooood";
+    }
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

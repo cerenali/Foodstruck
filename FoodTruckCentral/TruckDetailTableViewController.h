@@ -12,5 +12,6 @@
 @interface TruckDetailTableViewController : UITableViewController
 
 @property FoodTruckData *truck;
+@property NSMutableArray *cartArr;
 
 @end

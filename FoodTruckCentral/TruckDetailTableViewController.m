@@ -88,15 +88,23 @@
         cell.textLabel.text = [[foodDict allKeys] objectAtIndex:0];
         cell.detailTextLabel.text = [[foodDict allValues] objectAtIndex:0];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-//        [button addTarget:self action:[self performSelector:@selector(addButtonTappedWithFoodDict:) withObject:foodDict] forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(addButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         cell.accessoryView = button;
     }
     
     return cell;
 }
 
--(void)addButtonTappedWithFoodDict:(NSDictionary *)foodDict {
-    
+-(void)addButtonTapped:(UIButton *)sender {
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    if (indexPath != nil) {
+        // add food dictionary to cart
+        NSArray *menuKeys = [self.truck.menu allKeys];
+        NSArray *foodDictArr = [self.truck.menu objectForKey:[menuKeys objectAtIndex:indexPath.section-1]];
+        NSDictionary *foodDict = [foodDictArr objectAtIndex:indexPath.row];
+        [self.cartArr addObject:foodDict];
+    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
