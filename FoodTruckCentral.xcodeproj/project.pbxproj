@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B080CA41A6A172700CE1CB7 /* TruckListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B080CA31A6A172700CE1CB7 /* TruckListTableViewController.m */; };
+		4B080CA71A6A2C0700CE1CB7 /* TruckDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B080CA61A6A2C0700CE1CB7 /* TruckDetailTableViewController.m */; };
 		4B5C8A5E1A69EC100020E5B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A5D1A69EC100020E5B5 /* main.m */; };
 		4B5C8A611A69EC100020E5B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A601A69EC100020E5B5 /* AppDelegate.m */; };
 		4B5C8A641A69EC100020E5B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A631A69EC100020E5B5 /* ViewController.m */; };
@@ -14,6 +16,11 @@
 		4B5C8A691A69EC100020E5B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B5C8A681A69EC100020E5B5 /* Images.xcassets */; };
 		4B5C8A6C1A69EC100020E5B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B5C8A6A1A69EC100020E5B5 /* LaunchScreen.xib */; };
 		4B5C8A781A69EC100020E5B5 /* FoodTruckCentralTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A771A69EC100020E5B5 /* FoodTruckCentralTests.m */; };
+		4B5C8A831A69ED340020E5B5 /* MainMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A821A69ED340020E5B5 /* MainMapViewController.m */; };
+		4B5C8A861A69EDB80020E5B5 /* FoodTruckData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A851A69EDB80020E5B5 /* FoodTruckData.m */; };
+		4B5C8A881A69F28C0020E5B5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C8A871A69F28C0020E5B5 /* MapKit.framework */; };
+		4B5C8A8B1A69FA4B0020E5B5 /* TruckAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */; };
+		4B5C8A8D1A6A03630020E5B5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B080CA21A6A172700CE1CB7 /* TruckListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckListTableViewController.h; sourceTree = "<group>"; };
+		4B080CA31A6A172700CE1CB7 /* TruckListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckListTableViewController.m; sourceTree = "<group>"; };
+		4B080CA51A6A2C0700CE1CB7 /* TruckDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckDetailTableViewController.h; sourceTree = "<group>"; };
+		4B080CA61A6A2C0700CE1CB7 /* TruckDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckDetailTableViewController.m; sourceTree = "<group>"; };
 		4B5C8A581A69EC100020E5B5 /* FoodTruckCentral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTruckCentral.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C8A5C1A69EC100020E5B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5C8A5D1A69EC100020E5B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +51,14 @@
 		4B5C8A711A69EC100020E5B5 /* FoodTruckCentralTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTruckCentralTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C8A761A69EC100020E5B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5C8A771A69EC100020E5B5 /* FoodTruckCentralTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodTruckCentralTests.m; sourceTree = "<group>"; };
+		4B5C8A811A69ED340020E5B5 /* MainMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMapViewController.h; sourceTree = "<group>"; };
+		4B5C8A821A69ED340020E5B5 /* MainMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMapViewController.m; sourceTree = "<group>"; };
+		4B5C8A841A69EDB80020E5B5 /* FoodTruckData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTruckData.h; sourceTree = "<group>"; };
+		4B5C8A851A69EDB80020E5B5 /* FoodTruckData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTruckData.m; sourceTree = "<group>"; };
+		4B5C8A871A69F28C0020E5B5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4B5C8A891A69FA4B0020E5B5 /* TruckAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckAnnotationView.h; sourceTree = "<group>"; };
+		4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckAnnotationView.m; sourceTree = "<group>"; };
+		4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5C8A8D1A6A03630020E5B5 /* CoreLocation.framework in Frameworks */,
+				4B5C8A881A69F28C0020E5B5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +84,8 @@
 		4B5C8A4F1A69EC100020E5B5 = {
 			isa = PBXGroup;
 			children = (
+				4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */,
+				4B5C8A871A69F28C0020E5B5 /* MapKit.framework */,
 				4B5C8A5A1A69EC100020E5B5 /* FoodTruckCentral */,
 				4B5C8A741A69EC100020E5B5 /* FoodTruckCentralTests */,
 				4B5C8A591A69EC100020E5B5 /* Products */,
@@ -85,8 +108,18 @@
 				4B5C8A601A69EC100020E5B5 /* AppDelegate.m */,
 				4B5C8A621A69EC100020E5B5 /* ViewController.h */,
 				4B5C8A631A69EC100020E5B5 /* ViewController.m */,
-				4B5C8A651A69EC100020E5B5 /* Main.storyboard */,
+				4B5C8A841A69EDB80020E5B5 /* FoodTruckData.h */,
+				4B5C8A851A69EDB80020E5B5 /* FoodTruckData.m */,
+				4B5C8A891A69FA4B0020E5B5 /* TruckAnnotationView.h */,
+				4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */,
+				4B5C8A811A69ED340020E5B5 /* MainMapViewController.h */,
+				4B5C8A821A69ED340020E5B5 /* MainMapViewController.m */,
+				4B080CA21A6A172700CE1CB7 /* TruckListTableViewController.h */,
+				4B080CA31A6A172700CE1CB7 /* TruckListTableViewController.m */,
+				4B080CA51A6A2C0700CE1CB7 /* TruckDetailTableViewController.h */,
+				4B080CA61A6A2C0700CE1CB7 /* TruckDetailTableViewController.m */,
 				4B5C8A681A69EC100020E5B5 /* Images.xcassets */,
+				4B5C8A651A69EC100020E5B5 /* Main.storyboard */,
 				4B5C8A6A1A69EC100020E5B5 /* LaunchScreen.xib */,
 				4B5C8A5B1A69EC100020E5B5 /* Supporting Files */,
 			);
@@ -219,9 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5C8A861A69EDB80020E5B5 /* FoodTruckData.m in Sources */,
+				4B080CA41A6A172700CE1CB7 /* TruckListTableViewController.m in Sources */,
+				4B5C8A831A69ED340020E5B5 /* MainMapViewController.m in Sources */,
 				4B5C8A641A69EC100020E5B5 /* ViewController.m in Sources */,
+				4B080CA71A6A2C0700CE1CB7 /* TruckDetailTableViewController.m in Sources */,
 				4B5C8A611A69EC100020E5B5 /* AppDelegate.m in Sources */,
 				4B5C8A5E1A69EC100020E5B5 /* main.m in Sources */,
+				4B5C8A8B1A69FA4B0020E5B5 /* TruckAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +386,7 @@
 				INFOPLIST_FILE = FoodTruckCentral/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -358,6 +397,7 @@
 				INFOPLIST_FILE = FoodTruckCentral/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -414,6 +454,7 @@
 				4B5C8A7D1A69EC100020E5B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B5C8A7E1A69EC100020E5B5 /* Build configuration list for PBXNativeTarget "FoodTruckCentralTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +463,7 @@
 				4B5C8A801A69EC100020E5B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
