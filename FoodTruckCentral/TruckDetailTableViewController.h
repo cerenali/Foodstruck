@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FoodTruckData.h"
 
 @interface TruckDetailTableViewController : UITableViewController
+
+@property FoodTruckData *truck;
+
 
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface TruckListTableViewController : UITableViewController
+
+@property (strong, nonatomic) NSMutableArray *foodTruckArr;
+@property (strong, nonatomic) CLLocation *userLocation;
 
 @end

@@ -10,6 +10,26 @@
 
 @implementation TruckAnnotationView
 
+-(id)initWithTitle:(NSString *)newTitle location:(CLLocationCoordinate2D)newCoords {
+    self = [super init];
+    
+    if (self) {
+        self.title = newTitle;
+        self.coordinate = newCoords;
+    }
+
+    return self;
+}
+
+-(MKAnnotationView *)annotationView {
+    MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:self reuseIdentifier:@"TruckAnnotation"];
+    
+    annotationView.enabled = YES;
+    annotationView.canShowCallout = YES;
+
+    return annotationView;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
