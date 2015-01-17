@@ -16,12 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (!self.cartArr)
+        self.cartArr = [[NSMutableArray alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,14 +43,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 2; // one for food and one for buttons?
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    if (section == 1) { // static section (with buttons)
-        return 2;
-    }
     if (section == 0) { // food section
         return [self.cartArr count];
     }
@@ -57,9 +64,16 @@
     }
     
     if (indexPath.section == 0) {
-        cell.textLabel.text = @"static???";
-    } else if (indexPath.section == 1) {
-        cell.textLabel.text = @"foooood";
+        if (indexPath.row == [self.cartArr count]) { // last row: display total
+            cell.textLabel.text = @"Total";
+            cell.detailTextLabel.text = @"fajsdklfjld";
+        } else {
+            NSDictionary *foodDict = [self.cartArr objectAtIndex:indexPath.row];
+            NSString *itemName = [[foodDict allKeys] objectAtIndex:0];
+            cell.textLabel.text = itemName;
+            float price = [[foodDict objectForKey:itemName] floatValue] / 100;
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", price];
+        }
     }
     
     return cell;

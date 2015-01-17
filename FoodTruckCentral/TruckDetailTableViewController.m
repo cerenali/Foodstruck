@@ -7,6 +7,7 @@
 //
 
 #import "TruckDetailTableViewController.h"
+#import "CartTableViewController.h"
 
 @interface TruckDetailTableViewController ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (!self.cartArr)
+        self.cartArr = [[NSMutableArray alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -104,6 +108,7 @@
         NSArray *foodDictArr = [self.truck.menu objectForKey:[menuKeys objectAtIndex:indexPath.section-1]];
         NSDictionary *foodDict = [foodDictArr objectAtIndex:indexPath.row];
         [self.cartArr addObject:foodDict];
+        NSLog(@"%@", self.cartArr);
     }
 }
 
@@ -157,14 +162,18 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"toCart"]) {
+        CartTableViewController *destination = [segue destinationViewController];
+        NSLog(@"passing: %@", self.cartArr);
+        destination.cartArr = self.cartArr;
+    }
 }
-*/
 
 @end
