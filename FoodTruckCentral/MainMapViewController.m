@@ -11,6 +11,7 @@
 #import "TruckAnnotationView.h"
 #import "TruckListTableViewController.h"
 #import "RetrieveFoodTrucks.h"
+#import "TruckDetailTableViewController.h"
 
 @interface MainMapViewController ()
 
@@ -98,22 +99,36 @@
     [self.mapView setCenterCoordinate:current];
 }
 
-//-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation
+{
+    MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinLocation"];
+    
+    newAnnotation.canShowCallout = YES;
+    newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure]; // UIButtonTypeDetailDisclosure
+    
+    return newAnnotation;
+}
+
+-(FoodTruckData *) getTruckByName:(NSString *)name {
+    for (FoodTruckData *tr in self.foodTruckArr) {
+        if ([tr.name isEqualToString:name]) {
+            return tr;
+        }
+    }
+    return nil;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    
+    [self performSegueWithIdentifier:@"toTruckDetailViewFromMap" sender:view];
+//    TruckDetailTableViewController *destination = [[TruckDetailTableViewController alloc] init];
 //    
-//    if ([annotation isKindOfClass:[TruckAnnotationView class]]) {
-//        TruckAnnotationView *myLocation = (TruckAnnotationView *)annotation;
-//        
-//        MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"TruckAnnotation"];
-//        
-//        if (annotationView == nil)
-//            annotationView.annotation = myLocation.annotationView;
-//        else
-//            annotationView.annotation = annotation;
-//        
-//        return annotationView;
-//    } else
-//        return nil;
-//}
+//    NSString *trName = view.annotation.title;
+//    destination.truck = [self getTruckByName:trName];
+//    
+//    [self presentViewController:destination animated:YES completion:nil];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -140,6 +155,12 @@
             destination.foodTruckArr = [[NSMutableArray alloc] init];
         destination.foodTruckArr = self.foodTruckArr;
         destination.userLocation = self.locationManager.location;
+    } else if ([[segue identifier] isEqualToString:@"toTruckDetailViewFromMap"]) {
+        TruckDetailTableViewController *destination = [segue destinationViewController];
+        
+        MKAnnotationView *annotationView = sender;
+        NSString *trName = annotationView.annotation.title;
+        destination.truck = [self getTruckByName:trName];
     }
 }
 
