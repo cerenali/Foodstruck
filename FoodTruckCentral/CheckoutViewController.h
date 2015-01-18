@@ -17,5 +17,6 @@
 @property NSArray *cartArr;
 @property CLLocationCoordinate2D truckCoords;
 @property NSString *truckPhone;
+@property NSString *truckName;
 
 @end

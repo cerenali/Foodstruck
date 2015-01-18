@@ -47,6 +47,7 @@
         PostmatesCheckoutViewController *destination = [segue destinationViewController];
         destination.cartArr = self.cartArr;
         destination.truckPhone = self.truckPhone;
+        destination.truckName = self.truckName;
     }
 }
 

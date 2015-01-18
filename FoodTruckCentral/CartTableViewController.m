@@ -153,6 +153,7 @@
         destination.cartArr = self.cartArr;
         destination.truckCoords = self.truckCoords;
         destination.truckPhone = self.truckPhone;
+        destination.truckName = self.truckName;
     }
 }
 
