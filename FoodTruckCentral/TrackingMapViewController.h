@@ -11,6 +11,7 @@
 
 @interface TrackingMapViewController : UIViewController <MKMapViewDelegate, NSURLConnectionDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *trackingMapView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @property CLLocationCoordinate2D courierCoords;
 @property NSMutableDictionary *dictionary;

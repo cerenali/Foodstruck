@@ -17,6 +17,7 @@
     dispatch_source_t _timer;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -182,7 +183,7 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
                          handler:^(UIAlertAction * action)
                          {
                              [alert dismissViewControllerAnimated:YES completion:nil];
-                             
+                             [self performSegueWithIdentifier:@"returnToMapVC" sender:self];
                          }];
     
     [alert addAction:ok];
