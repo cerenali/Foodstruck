@@ -11,10 +11,6 @@
 @implementation FoodTruckData
 
 -(id) initWithSnapshot:(FDataSnapshot *)snapshot{
-//    //childSnap = one, two, three,...
-//    for (FDataSnapshot* childSnap in snapshot.children) {
-//        if ([childSnap hasChildren]) {
-            //childSnap1 = Menu, name, owner, coordinates, id
             for (FDataSnapshot* childSnap1 in snapshot.children) {
 //                NSLog(@">%@", childSnap1.key);
                 if ([childSnap1.key isEqualToString:@"Menu"]) {
@@ -71,8 +67,6 @@
                     self.cellnum = childSnap1.value;
                 }
             }
-//        }
-//    }
     
     return self;
 }
@@ -106,7 +100,6 @@
     [coordinates setObject:[NSString stringWithFormat:@"%f", self.coords.latitude] forKey:@"lat"];
     [coordinates setObject:[NSString stringWithFormat:@"%f", self.coords.longitude] forKey:@"long"];
     [dict setObject:coordinates forKey:@"coordinates"];
-    
     
     return dict;
 }

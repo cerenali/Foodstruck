@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface TrackingMapViewController : UIViewController <MKMapViewDelegate>
+@interface TrackingMapViewController : UIViewController <MKMapViewDelegate, NSURLConnectionDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *trackingMapView;
 
-@property (strong, nonatomic) CLLocation *currentLocation;
-
+@property CLLocationCoordinate2D courierCoords;
 @property NSMutableDictionary *dictionary;
+@property NSString *orderID;
 
 @end

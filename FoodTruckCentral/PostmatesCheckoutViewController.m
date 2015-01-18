@@ -111,7 +111,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"made connection");
+//    NSLog(@"made connection");
     [receivedData setLength:0];
 }
 
@@ -224,6 +224,7 @@
     }
     return total;
 }
+
 - (IBAction)submitOrder:(id)sender {
     
     if(!([self.nameTextField.text length] == 0) && !([self.phoneTextField.text length] == 0) && !([self.addressTextField.text length] == 0) && hasQuote){
