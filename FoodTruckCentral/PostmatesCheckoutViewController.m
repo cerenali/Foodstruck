@@ -204,7 +204,6 @@
     return total;
 }
 - (IBAction)submitOrder:(id)sender {
-    NSString *errorMessage = [[NSString alloc] init];
     
     if(!([self.nameTextField.text length] == 0) && !([self.phoneTextField.text length] == 0) && !([self.addressTextField.text length] == 0) && hasQuote){
         NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
