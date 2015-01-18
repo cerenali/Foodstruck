@@ -65,6 +65,18 @@
     return CLLocationCoordinate2DMake([[coordDict objectForKey:@"lat"] floatValue], [[coordDict objectForKey:@"lng"] floatValue]);
 }
 
+- (NSString *) dateFromISO8601DateString:(NSString *) dateString {
+    NSDateFormatter * dateFormatter = [NSDateFormatter new];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+    NSDate * date = [dateFormatter dateFromString:dateString];
+    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *eta = date;
+    dateFormatter.dateFormat = @"M/dd/yy 'at' hh:mm a";
+    return [dateFormatter stringFromDate:eta];
+}
+
 /*
 #pragma mark - Navigation
 

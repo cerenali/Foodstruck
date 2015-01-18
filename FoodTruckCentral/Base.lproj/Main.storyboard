@@ -196,11 +196,15 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="Pickup" id="PgZ-7O-8w3"/>
+                        <barButtonItem title="Pickup" id="PgZ-7O-8w3">
+                            <connections>
+                                <segue destination="AjH-dJ-aPW" kind="show" identifier="toPickupView" id="51H-op-tND"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="4n7-Wp-Uak"/>
                         <barButtonItem title="Delivery" id="NuC-yH-9T2">
                             <connections>
-                                <segue destination="IYw-X0-eby" kind="show" identifier="toCheckout" id="7eD-nw-kBQ"/>
+                                <segue destination="IYw-X0-eby" kind="show" identifier="toPostmatesView" id="7eD-nw-kBQ"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -209,6 +213,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rH1-6q-J0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3151" y="1468"/>
+        </scene>
+        <!--Pickup View Controller-->
+        <scene sceneID="l7M-72-fsH">
+            <objects>
+                <viewController id="AjH-dJ-aPW" customClass="PickupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hsC-1T-GRw"/>
+                        <viewControllerLayoutGuide type="bottom" id="70q-kh-dhk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QuH-Z1-0gX">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAm-0S-Azx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3150" y="2141.25"/>
         </scene>
         <!--Postmates Checkout View Controller-->
         <scene sceneID="DdH-bC-kM1">

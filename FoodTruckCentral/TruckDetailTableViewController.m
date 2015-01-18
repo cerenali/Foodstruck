@@ -100,7 +100,6 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
         [button addTarget:self action:@selector(addButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         cell.accessoryView = button;
-    
     }
     
     return cell;
@@ -115,7 +114,6 @@
         NSArray *foodDictArr = [self.truck.menu objectForKey:[menuKeys objectAtIndex:indexPath.section-1]];
         NSDictionary *foodDict = [foodDictArr objectAtIndex:indexPath.row];
         [self.cartArr addObject:foodDict];
-        NSLog(@"%@", self.cartArr);
     }
 }
 
@@ -178,7 +176,7 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"toCart"]) {
         CartTableViewController *destination = [segue destinationViewController];
-        NSLog(@"passing: %@", self.cartArr);
+        NSLog(@"cart: %@", self.cartArr);
         destination.cartArr = self.cartArr;
         destination.truckCoords = self.truck.coords;
         destination.truckPhone = self.truck.cellnum;

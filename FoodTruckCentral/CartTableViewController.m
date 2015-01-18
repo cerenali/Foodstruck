@@ -8,6 +8,7 @@
 
 #import "CartTableViewController.h"
 #import "PostmatesCheckoutViewController.h"
+#import "PickupViewController.h"
 
 @interface CartTableViewController ()
 
@@ -144,15 +145,19 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"toCheckout"]) {
+    if ([[segue identifier] isEqualToString:@"toPostmatesView"]) {
         PostmatesCheckoutViewController *destination = [segue destinationViewController];
         destination.cartArr = self.cartArr;
-        
-        NSLog(@"truckCoords: %f, %f", self.truckCoords.latitude, self.truckCoords.longitude);
         
         destination.truckCoords = self.truckCoords;
         destination.truckPhone = self.truckPhone;
         destination.truckName = self.truckName;
+    } else if ([[segue identifier] isEqualToString:@"toPickupView"]) {
+        PostmatesCheckoutViewController *destination = [segue destinationViewController];
+        destination.cartArr = self.cartArr;
+        
+        destination.cartArr = self.cartArr;
+        destination.truckPhone = self.truckPhone;
     }
 }
 

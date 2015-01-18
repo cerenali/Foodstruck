@@ -23,7 +23,6 @@
 - (IBAction)getQuote:(id)sender {
     NSString *dropoffAddress = self.addressTextField.text;
     deliveryAddress = self.addressTextField.text;
-    NSLog(@"#2 truckCoords: %f, %f", self.truckCoords.latitude, self.truckCoords.longitude);
     NSString *pickupAddress = [NSString stringWithFormat:@"%f,%f", self.truckCoords.latitude, self.truckCoords.longitude];
     [self getQuoteFromAddress:pickupAddress To:dropoffAddress];
 }
