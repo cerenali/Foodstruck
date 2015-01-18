@@ -69,10 +69,6 @@
             [self reloadAnnotations];
         }
     }];
-    
-//    RetrieveFoodTrucks *getTruckData = [[RetrieveFoodTrucks alloc] initWithURL:firebaseURL sortedBy:@"name"];
-    
-//    self.foodTruckArr = [NSMutableArray arrayWithArray:[getTruckData getAllFoodTrucksAsArray]];
     [self reloadAnnotations];
     
 }
@@ -81,17 +77,12 @@
     // iterate through foodTruckArr and create map annotations for each food truck
     for (FoodTruckData *truck in self.foodTruckArr) {
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-//        NSLog(@"name: %@", truck.name);
-//        NSLog(@"lat, long: %f, %f", truck.coords.latitude, truck.coords.longitude);
         annotation.coordinate = truck.coords;
         annotation.title = truck.name;
         float dist = [truck getDistanceInMilesToLocation:self.locationManager.location];
         annotation.subtitle = [NSString stringWithFormat:@"%.2f mi",dist];
         [self.mapView addAnnotation:annotation];
         self.mapView.showsUserLocation = YES;
-        
-        //        TruckAnnotationView *truckAnnotation = [[TruckAnnotationView alloc] initWithTitle:truck.name location:truck.coords];
-        //        [self.mapView addAnnotation:truckAnnotation];
     }
 }
 
@@ -106,8 +97,7 @@
     {
         return nil;
     }
-    
-    NSLog(@">>truck pin");
+
     MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinLocation"];
     
     newAnnotation.canShowCallout = YES;
@@ -128,12 +118,6 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
     
     [self performSegueWithIdentifier:@"toTruckDetailViewFromMap" sender:view];
-//    TruckDetailTableViewController *destination = [[TruckDetailTableViewController alloc] init];
-//    
-//    NSString *trName = view.annotation.title;
-//    destination.truck = [self getTruckByName:trName];
-//    
-//    [self presentViewController:destination animated:YES completion:nil];
     
 }
 
