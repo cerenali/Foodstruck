@@ -8,7 +8,6 @@
 
 #import "MainMapViewController.h"
 #import "FoodTruckData.h"
-#import "TruckAnnotationView.h"
 #import "TruckListTableViewController.h"
 #import "RetrieveFoodTrucks.h"
 #import "TruckDetailTableViewController.h"

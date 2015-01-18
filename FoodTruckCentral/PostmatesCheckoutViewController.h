@@ -22,4 +22,6 @@
 @property NSString *truckPhone;
 @property NSString *truckName;
 
+@property NSMutableDictionary *dictionary;
+
 @end

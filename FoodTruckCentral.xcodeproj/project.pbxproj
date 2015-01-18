@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B080CA41A6A172700CE1CB7 /* TruckListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B080CA31A6A172700CE1CB7 /* TruckListTableViewController.m */; };
 		4B080CA71A6A2C0700CE1CB7 /* TruckDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B080CA61A6A2C0700CE1CB7 /* TruckDetailTableViewController.m */; };
+		4B0AA93D1A6B5E8D000E49DF /* TrackingMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0AA93C1A6B5E8D000E49DF /* TrackingMapViewController.m */; };
 		4B5C8A5E1A69EC100020E5B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A5D1A69EC100020E5B5 /* main.m */; };
 		4B5C8A611A69EC100020E5B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A601A69EC100020E5B5 /* AppDelegate.m */; };
 		4B5C8A641A69EC100020E5B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A631A69EC100020E5B5 /* ViewController.m */; };
@@ -19,7 +20,6 @@
 		4B5C8A831A69ED340020E5B5 /* MainMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A821A69ED340020E5B5 /* MainMapViewController.m */; };
 		4B5C8A861A69EDB80020E5B5 /* FoodTruckData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A851A69EDB80020E5B5 /* FoodTruckData.m */; };
 		4B5C8A881A69F28C0020E5B5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C8A871A69F28C0020E5B5 /* MapKit.framework */; };
-		4B5C8A8B1A69FA4B0020E5B5 /* TruckAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */; };
 		4B5C8A8D1A6A03630020E5B5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */; };
 		69C5B5CB1A6B03B100C34DB7 /* CartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C5B5CA1A6B03B100C34DB7 /* CartTableViewController.m */; };
 		69C5B5CE1A6B314B00C34DB7 /* PostmatesCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C5B5CD1A6B314B00C34DB7 /* PostmatesCheckoutViewController.m */; };
@@ -42,6 +42,8 @@
 		4B080CA31A6A172700CE1CB7 /* TruckListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckListTableViewController.m; sourceTree = "<group>"; };
 		4B080CA51A6A2C0700CE1CB7 /* TruckDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckDetailTableViewController.h; sourceTree = "<group>"; };
 		4B080CA61A6A2C0700CE1CB7 /* TruckDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckDetailTableViewController.m; sourceTree = "<group>"; };
+		4B0AA93B1A6B5E8D000E49DF /* TrackingMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingMapViewController.h; sourceTree = "<group>"; };
+		4B0AA93C1A6B5E8D000E49DF /* TrackingMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingMapViewController.m; sourceTree = "<group>"; };
 		4B5C8A581A69EC100020E5B5 /* FoodTruckCentral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTruckCentral.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C8A5C1A69EC100020E5B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5C8A5D1A69EC100020E5B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,8 +62,6 @@
 		4B5C8A841A69EDB80020E5B5 /* FoodTruckData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTruckData.h; sourceTree = "<group>"; };
 		4B5C8A851A69EDB80020E5B5 /* FoodTruckData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTruckData.m; sourceTree = "<group>"; };
 		4B5C8A871A69F28C0020E5B5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		4B5C8A891A69FA4B0020E5B5 /* TruckAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckAnnotationView.h; sourceTree = "<group>"; };
-		4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckAnnotationView.m; sourceTree = "<group>"; };
 		4B5C8A8C1A6A03630020E5B5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6305D99B7DAC97D4A131A47E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		69C5B5C91A6B03B100C34DB7 /* CartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewController.h; sourceTree = "<group>"; };
@@ -104,6 +104,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4B0AA93E1A6B5EA2000E49DF /* Data Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4B5C8A841A69EDB80020E5B5 /* FoodTruckData.h */,
+				4B5C8A851A69EDB80020E5B5 /* FoodTruckData.m */,
+				69D9950D1A6A528100B830CE /* RetrieveFoodTrucks.h */,
+				69D9950E1A6A528100B830CE /* RetrieveFoodTrucks.m */,
+			);
+			name = "Data Classes";
+			sourceTree = "<group>";
+		};
+		4B0AA93F1A6B5ECB000E49DF /* Truck View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B5C8A811A69ED340020E5B5 /* MainMapViewController.h */,
+				4B5C8A821A69ED340020E5B5 /* MainMapViewController.m */,
+				4B080CA21A6A172700CE1CB7 /* TruckListTableViewController.h */,
+				4B080CA31A6A172700CE1CB7 /* TruckListTableViewController.m */,
+				4B080CA51A6A2C0700CE1CB7 /* TruckDetailTableViewController.h */,
+				4B080CA61A6A2C0700CE1CB7 /* TruckDetailTableViewController.m */,
+			);
+			name = "Truck View Controllers";
+			sourceTree = "<group>";
+		};
+		4B0AA9401A6B5EDF000E49DF /* Checkout View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				69C5B5C91A6B03B100C34DB7 /* CartTableViewController.h */,
+				69C5B5CA1A6B03B100C34DB7 /* CartTableViewController.m */,
+				69C5B5CC1A6B314B00C34DB7 /* PostmatesCheckoutViewController.h */,
+				69C5B5CD1A6B314B00C34DB7 /* PostmatesCheckoutViewController.m */,
+				4B0AA93B1A6B5E8D000E49DF /* TrackingMapViewController.h */,
+				4B0AA93C1A6B5E8D000E49DF /* TrackingMapViewController.m */,
+			);
+			name = "Checkout View Controllers";
+			sourceTree = "<group>";
+		};
 		4B5C8A4F1A69EC100020E5B5 = {
 			isa = PBXGroup;
 			children = (
@@ -133,22 +170,9 @@
 				4B5C8A601A69EC100020E5B5 /* AppDelegate.m */,
 				4B5C8A621A69EC100020E5B5 /* ViewController.h */,
 				4B5C8A631A69EC100020E5B5 /* ViewController.m */,
-				4B5C8A841A69EDB80020E5B5 /* FoodTruckData.h */,
-				4B5C8A851A69EDB80020E5B5 /* FoodTruckData.m */,
-				69D9950D1A6A528100B830CE /* RetrieveFoodTrucks.h */,
-				69D9950E1A6A528100B830CE /* RetrieveFoodTrucks.m */,
-				4B5C8A891A69FA4B0020E5B5 /* TruckAnnotationView.h */,
-				4B5C8A8A1A69FA4B0020E5B5 /* TruckAnnotationView.m */,
-				4B5C8A811A69ED340020E5B5 /* MainMapViewController.h */,
-				4B5C8A821A69ED340020E5B5 /* MainMapViewController.m */,
-				4B080CA21A6A172700CE1CB7 /* TruckListTableViewController.h */,
-				4B080CA31A6A172700CE1CB7 /* TruckListTableViewController.m */,
-				4B080CA51A6A2C0700CE1CB7 /* TruckDetailTableViewController.h */,
-				4B080CA61A6A2C0700CE1CB7 /* TruckDetailTableViewController.m */,
-				69C5B5C91A6B03B100C34DB7 /* CartTableViewController.h */,
-				69C5B5CA1A6B03B100C34DB7 /* CartTableViewController.m */,
-				69C5B5CC1A6B314B00C34DB7 /* PostmatesCheckoutViewController.h */,
-				69C5B5CD1A6B314B00C34DB7 /* PostmatesCheckoutViewController.m */,
+				4B0AA93E1A6B5EA2000E49DF /* Data Classes */,
+				4B0AA93F1A6B5ECB000E49DF /* Truck View Controllers */,
+				4B0AA9401A6B5EDF000E49DF /* Checkout View Controllers */,
 				4B5C8A681A69EC100020E5B5 /* Images.xcassets */,
 				4B5C8A651A69EC100020E5B5 /* Main.storyboard */,
 				4B5C8A6A1A69EC100020E5B5 /* LaunchScreen.xib */,
@@ -333,8 +357,8 @@
 				4B5C8A641A69EC100020E5B5 /* ViewController.m in Sources */,
 				4B080CA71A6A2C0700CE1CB7 /* TruckDetailTableViewController.m in Sources */,
 				4B5C8A611A69EC100020E5B5 /* AppDelegate.m in Sources */,
+				4B0AA93D1A6B5E8D000E49DF /* TrackingMapViewController.m in Sources */,
 				4B5C8A5E1A69EC100020E5B5 /* main.m in Sources */,
-				4B5C8A8B1A69FA4B0020E5B5 /* TruckAnnotationView.m in Sources */,
 				69D9950F1A6A528100B830CE /* RetrieveFoodTrucks.m in Sources */,
 				69C5B5CB1A6B03B100C34DB7 /* CartTableViewController.m in Sources */,
 				69C5B5CE1A6B314B00C34DB7 /* PostmatesCheckoutViewController.m in Sources */,

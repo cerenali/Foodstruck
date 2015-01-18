@@ -7,6 +7,7 @@
 //
 
 #import "PostmatesCheckoutViewController.h"
+#import "TrackingMapViewController.h"
 
 @interface PostmatesCheckoutViewController ()
 
@@ -14,7 +15,6 @@
 
 @implementation PostmatesCheckoutViewController{
     NSMutableData *receivedData;
-    NSMutableDictionary *dictionary;
     BOOL hasQuote;
     NSString *deliveryAddress;
     BOOL deliveryRequestSuccess;
@@ -121,29 +121,31 @@
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
     [receivedData appendData:data];
-    dictionary = [NSJSONSerialization JSONObjectWithData:receivedData options:kNilOptions error:nil];
-    NSLog(@"%@", dictionary);
-    NSLog(@"returned data");
+    _dictionary = [NSJSONSerialization JSONObjectWithData:receivedData options:kNilOptions error:nil];
+    NSLog(@"returned data:");
+    NSLog(@"%@", _dictionary);
     
-    if ([[dictionary objectForKey:@"kind"] isEqualToString:@"delivery_quote"]) {
-        NSString *priceString = [dictionary objectForKey:@"fee"];
-        NSString *fee = [NSString stringWithFormat:@"$%.2f", [priceString doubleValue]];
+    if ([[_dictionary objectForKey:@"kind"] isEqualToString:@"delivery_quote"]) {
+        NSString *priceString = [_dictionary objectForKey:@"fee"];
+        NSString *fee = [NSString stringWithFormat:@"$%.2f", [priceString doubleValue]/100];
         self.deliveryChargeLabel.text = [NSString stringWithFormat:@"Charge for Delivery: %@", fee];
         
         float subtotal = [self calculateSubtotalPrice];
         NSString *foodPrice = [NSString stringWithFormat:@"$%.2f", subtotal];
         self.foodChargeLabel.text = [NSString stringWithFormat:@"Charge for Food: %@", foodPrice];
         
-        NSString *totalPrice = [NSString stringWithFormat:@"%f", subtotal + [priceString doubleValue]];
+        NSString *totalPrice = [NSString stringWithFormat:@"$%.2f", subtotal + [priceString doubleValue]/100];
         self.totalLabel.text = [NSString stringWithFormat:@"Total: %@", totalPrice];
         
         hasQuote = YES;
-    } else if ([[dictionary objectForKey:@"kind"] isEqualToString:@"delivery"]) {
+    } else if ([[_dictionary objectForKey:@"kind"] isEqualToString:@"delivery"]) {
         deliveryRequestSuccess = YES;
+        // redirect to map for delivery tracking
+        [self showSuccessAlertAndSegueToTrackingMap];
         
-    } else if ([[dictionary objectForKey:@"kind"] isEqualToString:@"error"]) {
-        if ([[dictionary objectForKey:@"code"] isEqualToString:@"invalid_params"]) {
-            NSDictionary *params = [dictionary objectForKey:@"params"];
+    } else if ([[_dictionary objectForKey:@"kind"] isEqualToString:@"error"]) {
+        if ([[_dictionary objectForKey:@"code"] isEqualToString:@"invalid_params"]) {
+            NSDictionary *params = [_dictionary objectForKey:@"params"];
             NSString *wrongParam = params.allKeys[0];
             if([wrongParam isEqualToString:@"dropoff_phone_number"]) {
                 /*
@@ -151,19 +153,39 @@
                  */
                 [self showAlertWithMessage:@"Phone numbers must be in the format XXX-XXX-XXXX."];
             }
-        } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"address_undeliverable"] ||
-                   [[dictionary objectForKey:@"code"] isEqualToString:@"unknown_location"]) {
+        } else if ([[_dictionary objectForKey:@"code"] isEqualToString:@"address_undeliverable"] ||
+                   [[_dictionary objectForKey:@"code"] isEqualToString:@"unknown_location"]) {
             /*
              ALERT THAT "Please enter a valid address."
              */
             [self showAlertWithMessage:@"Please enter a valid address"];
-        } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"unknown"]) {
+        } else if ([[_dictionary objectForKey:@"code"] isEqualToString:@"unknown"]) {
             /*
              ALERT THAT "Unknown error. Please make sure all fields are valid."
              */
             [self showAlertWithMessage:@"Unknown error. Please make sure all fields are valid."];
         }
     }
+}
+
+-(void)showSuccessAlertAndSegueToTrackingMap {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Success"
+                                  message:@"Order was successfully placed for delivery!"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Track order"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             [self performSegueWithIdentifier:@"toTrackingMapView" sender:self];
+                         }];
+    
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void) showAlertWithMessage:(NSString *)msg {
@@ -210,10 +232,10 @@
         //Create Delivery
         NSString *url = @"https://api.postmates.com/v1/customers/cus_KASCAdgaCzH92F/deliveries";
         
-        NSString *manifest=@"";
+        NSString *manifest= [[NSString alloc] init];
         for(NSDictionary*dict in self.cartArr) {
-            [manifest stringByAppendingString:dict.allKeys[0]];
-            [manifest stringByAppendingString:@"\n"];
+            NSString *str = dict.allKeys[0];
+            manifest = [manifest stringByAppendingString:[NSString stringWithFormat:@"%@\n",str]];
         }
         
         NSString *pickup_name=self.truckName;
@@ -265,14 +287,16 @@
     }
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"toTrackingMapView"]) {
+        TrackingMapViewController *destination = [segue destinationViewController];
+        destination.dictionary = self.dictionary;
+    }
 }
-*/
 
 @end
