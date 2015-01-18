@@ -101,7 +101,6 @@
                              [alert dismissViewControllerAnimated:YES completion:nil];
 //                             [self.navigationController popToRootViewControllerAnimated:YES];
                              [self performSegueWithIdentifier:@"returnToMapVC" sender:self];
-                             
                          }];
     
     [alert addAction:ok];

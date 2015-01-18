@@ -373,9 +373,11 @@
                         <outlet property="date" destination="LPx-9r-L0B" id="tOh-hZ-fcP"/>
                         <outlet property="manifestView" destination="nBa-fe-RDd" id="gDu-nr-RXH"/>
                         <outlet property="time" destination="ZMV-6o-atT" id="TYJ-7X-ztR"/>
+                        <segue destination="9gM-aF-6iK" kind="unwind" identifier="returnToMapVC" unwindAction="returnToMapVC:" id="xQQ-nm-MKe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAm-0S-Azx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9gM-aF-6iK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3150" y="2140.5"/>
         </scene>
