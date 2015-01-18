@@ -20,8 +20,8 @@
 }
 
 - (IBAction)getQuote:(id)sender {
-    NSString *dropoffAddress = self.addressField.text;
-    deliveryAddress = self.addressField.text;
+    NSString *dropoffAddress = self.addressTextField.text;
+    deliveryAddress = self.addressTextField.text;
     NSString *pickupAddress = [NSString stringWithFormat:@"%f,%f", self.truckCoords.latitude, self.truckCoords.longitude];
     [self getQuoteFromAddress:pickupAddress To:dropoffAddress];
 }
@@ -141,7 +141,7 @@
     NSString *url = @"https://api.postmates.com/v1/customers/cus_KASCAdgaCzH92F/deliveries";
     NSString *manifest=@"kittens";
     NSString *pickup_name=@"Joe";
-    NSString *pickup_address=@"3704 Spruce St, Philadelphia, PA";
+    NSString *pickup_address=@"4400 Spruce St, Philadelphia, PA";
     NSString *pickup_phone_number=@"+15162202837";
     NSString *pickup_business_name=@"";
     NSString *pickup_notes=@"";

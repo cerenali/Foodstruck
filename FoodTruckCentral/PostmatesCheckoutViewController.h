@@ -10,7 +10,9 @@
 #import <MapKit/MapKit.h>
 
 @interface PostmatesCheckoutViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *addressField;
+@property (weak, nonatomic) IBOutlet UITextField *addressTextField;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UILabel *deliveryChargeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *foodChargeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
