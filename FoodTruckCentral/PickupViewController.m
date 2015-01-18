@@ -7,6 +7,7 @@
 //
 
 #import "PickupViewController.h"
+#import "MainMapViewController.h"
 
 @interface PickupViewController ()
 
@@ -72,13 +73,58 @@
 - (IBAction)confirmOrderPickup:(id)sender {
     if ([self.date.text length] == 0) {
         //ALERT THAT "Please enter a date for pickup."
+        [self showErrorAlertWithMessage:@"Please enter a date for pickup"];
     } else if ([self.time.text length] == 0) {
-        //ALERT THAT "Please enter a date for pickup."
+        //ALERT THAT "Please enter a time for pickup."
+        [self showErrorAlertWithMessage:@"Please enter a time for pickup"];
     } else {
         if ([self sendTwilioMessage]) {
             //ALERT THAT "Pickup scheduled!" and return to map
+            [self showSuccessAlertWithMessage:@"Pickup scheduled!"];
         }
     }
+}
+
+-(void) showSuccessAlertWithMessage:(NSString *)msg {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Success"
+                                  message:msg
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+//                             [self.navigationController popToRootViewControllerAnimated:YES];
+                             [self performSegueWithIdentifier:@"returnToMapVC" sender:self];
+                             
+                         }];
+    
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void) showErrorAlertWithMessage:(NSString *)msg {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Error"
+                                  message:msg
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (BOOL)sendTwilioMessage {

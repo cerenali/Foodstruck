@@ -18,6 +18,9 @@
 
 @implementation MainMapViewController
 
+- (IBAction)returnToMapVC:(UIStoryboardSegue *)segue {
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

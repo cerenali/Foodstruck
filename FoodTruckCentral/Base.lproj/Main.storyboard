@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -47,9 +47,11 @@
                         <outlet property="listButton" destination="d0R-aj-Mzn" id="zTp-ZM-rFx"/>
                         <outlet property="mapView" destination="iVx-oG-0TO" id="BSd-Z8-YUP"/>
                         <segue destination="BD9-3e-txI" kind="show" identifier="toTruckDetailViewFromMap" id="1RJ-VV-QWK"/>
+                        <segue destination="tDK-Hp-rlb" kind="unwind" unwindAction="unwindToSegue:" id="CX6-La-jJH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="tDK-Hp-rlb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1198" y="427"/>
         </scene>
@@ -287,6 +289,25 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lkB-LG-ZW3" firstAttribute="leading" secondItem="QuH-Z1-0gX" secondAttribute="leadingMargin" constant="73" id="0lP-8I-IzO"/>
+                            <constraint firstItem="tFO-rQ-Pt4" firstAttribute="leading" secondItem="QuH-Z1-0gX" secondAttribute="leadingMargin" id="4S1-FV-11W"/>
+                            <constraint firstItem="nBa-fe-RDd" firstAttribute="leading" secondItem="QuH-Z1-0gX" secondAttribute="leadingMargin" constant="24" id="6dd-nN-wKu"/>
+                            <constraint firstItem="tFO-rQ-Pt4" firstAttribute="top" secondItem="nBa-fe-RDd" secondAttribute="bottom" constant="8" id="CUL-d5-gml"/>
+                            <constraint firstItem="lkB-LG-ZW3" firstAttribute="top" secondItem="le5-30-fK3" secondAttribute="bottom" constant="17" id="JiN-6d-3wI"/>
+                            <constraint firstItem="ZMV-6o-atT" firstAttribute="leading" secondItem="lkB-LG-ZW3" secondAttribute="trailing" constant="23" id="MHa-fg-LrT"/>
+                            <constraint firstAttribute="bottom" secondItem="tFO-rQ-Pt4" secondAttribute="bottom" constant="20" symbolic="YES" id="NNG-Nd-hwS"/>
+                            <constraint firstItem="LPx-9r-L0B" firstAttribute="top" secondItem="hsC-1T-GRw" secondAttribute="bottom" constant="29" id="O2Y-Rv-YZP"/>
+                            <constraint firstItem="LPx-9r-L0B" firstAttribute="leading" secondItem="le5-30-fK3" secondAttribute="trailing" constant="23" id="QUu-V5-TNb"/>
+                            <constraint firstItem="nBa-fe-RDd" firstAttribute="top" secondItem="lkB-LG-ZW3" secondAttribute="bottom" constant="14.5" id="SWB-zu-Uwe"/>
+                            <constraint firstItem="le5-30-fK3" firstAttribute="top" secondItem="hsC-1T-GRw" secondAttribute="bottom" constant="33" id="dC2-bh-ZkA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nBa-fe-RDd" secondAttribute="trailing" constant="23" id="dG8-WH-w4W"/>
+                            <constraint firstItem="le5-30-fK3" firstAttribute="leading" secondItem="QuH-Z1-0gX" secondAttribute="leadingMargin" constant="74" id="eWK-mK-ri2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LPx-9r-L0B" secondAttribute="trailing" constant="75" id="iOS-C3-RFk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZMV-6o-atT" secondAttribute="trailing" constant="75" id="ixb-ic-Ysh"/>
+                            <constraint firstItem="tFO-rQ-Pt4" firstAttribute="trailing" secondItem="QuH-Z1-0gX" secondAttribute="trailingMargin" id="kL7-RH-iTx"/>
+                            <constraint firstItem="ZMV-6o-atT" firstAttribute="top" secondItem="LPx-9r-L0B" secondAttribute="bottom" constant="8" id="sjp-Z4-wWi"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="LPx-9r-L0B"/>
@@ -295,6 +316,25 @@
                                 <exclude reference="ZMV-6o-atT"/>
                                 <exclude reference="tFO-rQ-Pt4"/>
                                 <exclude reference="nBa-fe-RDd"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="dC2-bh-ZkA"/>
+                                <exclude reference="eWK-mK-ri2"/>
+                                <exclude reference="0lP-8I-IzO"/>
+                                <exclude reference="JiN-6d-3wI"/>
+                                <exclude reference="6dd-nN-wKu"/>
+                                <exclude reference="SWB-zu-Uwe"/>
+                                <exclude reference="dG8-WH-w4W"/>
+                                <exclude reference="O2Y-Rv-YZP"/>
+                                <exclude reference="QUu-V5-TNb"/>
+                                <exclude reference="iOS-C3-RFk"/>
+                                <exclude reference="MHa-fg-LrT"/>
+                                <exclude reference="ixb-ic-Ysh"/>
+                                <exclude reference="sjp-Z4-wWi"/>
+                                <exclude reference="4S1-FV-11W"/>
+                                <exclude reference="CUL-d5-gml"/>
+                                <exclude reference="NNG-Nd-hwS"/>
+                                <exclude reference="kL7-RH-iTx"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -307,16 +347,39 @@
                                 <include reference="nBa-fe-RDd"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="dC2-bh-ZkA"/>
+                                <include reference="eWK-mK-ri2"/>
+                                <include reference="0lP-8I-IzO"/>
+                                <include reference="JiN-6d-3wI"/>
+                                <include reference="6dd-nN-wKu"/>
+                                <include reference="SWB-zu-Uwe"/>
+                                <include reference="dG8-WH-w4W"/>
+                                <include reference="O2Y-Rv-YZP"/>
+                                <include reference="QUu-V5-TNb"/>
+                                <include reference="iOS-C3-RFk"/>
+                                <include reference="MHa-fg-LrT"/>
+                                <include reference="ixb-ic-Ysh"/>
+                                <include reference="sjp-Z4-wWi"/>
+                                <include reference="4S1-FV-11W"/>
+                                <include reference="CUL-d5-gml"/>
+                                <include reference="NNG-Nd-hwS"/>
+                                <include reference="kL7-RH-iTx"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="date" destination="LPx-9r-L0B" id="tOh-hZ-fcP"/>
                         <outlet property="manifestView" destination="nBa-fe-RDd" id="gDu-nr-RXH"/>
                         <outlet property="time" destination="ZMV-6o-atT" id="TYJ-7X-ztR"/>
+                        <segue destination="9gM-aF-6iK" kind="unwind" identifier="returnToMapVC" unwindAction="returnToMapVC:" id="i7M-Jb-EE1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAm-0S-Azx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9gM-aF-6iK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3150" y="2141"/>
+            <point key="canvasLocation" x="3150" y="2140.5"/>
         </scene>
         <!--Postmates Checkout View Controller-->
         <scene sceneID="DdH-bC-kM1">
