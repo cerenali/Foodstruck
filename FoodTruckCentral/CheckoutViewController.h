@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface CheckoutViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *postmatesDeliveryButton;
@@ -14,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @property NSArray *cartArr;
+@property CLLocationCoordinate2D truckCoords;
+@property NSString *truckPhone;
 
 @end

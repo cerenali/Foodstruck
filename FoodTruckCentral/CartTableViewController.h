@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface CartTableViewController : UITableViewController
 
 @property NSMutableArray *cartArr;
+@property CLLocationCoordinate2D truckCoords;
+@property NSString *truckPhone;
 
 @end

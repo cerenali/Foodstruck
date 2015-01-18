@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface PostmatesCheckoutViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UILabel *deliveryChargeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *foodChargeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+
+@property CLLocationCoordinate2D truckCoords;
+@property NSArray *cartArr;
+@property NSString *truckPhone;
 
 @end

@@ -176,6 +176,8 @@
         CartTableViewController *destination = [segue destinationViewController];
         NSLog(@"passing: %@", self.cartArr);
         destination.cartArr = self.cartArr;
+        destination.truckCoords = self.truck.coords;
+        destination.truckPhone = self.truck.cellnum;
     }
 }
 

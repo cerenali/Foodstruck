@@ -151,6 +151,8 @@
     if ([[segue identifier] isEqualToString:@"toCheckout"]) {
         CheckoutViewController *destination = [segue destinationViewController];
         destination.cartArr = self.cartArr;
+        destination.truckCoords = self.truckCoords;
+        destination.truckPhone = self.truckPhone;
     }
 }
 
