@@ -24,7 +24,7 @@
     CLLocationCoordinate2D pickupCoords = [self getCoordsFromDictionaryWithKey:@"pickup"];
     
     [self addAnnotationAtCoords:dropoffCoords withTitle:@"Dropoff Location" withSubtitle:nil];
-    [self addAnnotationAtCoords:pickupCoords withTitle:@"Courier" withSubtitle:@"Your delivery is on its way"]; // later: update subtitle to have ETA?
+    [self addAnnotationAtCoords:pickupCoords withTitle:@"Pickup Location" withSubtitle:nil]; // later: update subtitle to have ETA?
     
     MKCoordinateRegion defaultRegion = MKCoordinateRegionMake(dropoffCoords, defaultSpan);
     [self.trackingMapView setRegion:defaultRegion];
@@ -36,6 +36,8 @@
     
     if ([annotation.title isEqualToString:@"Dropoff Location"]) {
         newAnnotation.pinColor = MKPinAnnotationColorPurple;
+    } else if ([annotation.title isEqualToString:@"Pickup Location"]) {
+        newAnnotation.pinColor = MKPinAnnotationColorGreen;
     }
     
     newAnnotation.canShowCallout = YES;
