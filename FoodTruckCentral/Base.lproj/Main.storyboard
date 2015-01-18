@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -235,7 +235,7 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="212" y="93" width="97" height="30"/>
                                 </variation>
                             </textField>
@@ -244,7 +244,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="90" y="97" width="99" height="21"/>
                                 </variation>
                             </label>
@@ -253,7 +253,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="89" y="135" width="100" height="21"/>
                                 </variation>
                             </label>
@@ -261,7 +261,7 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="212" y="131" width="97" height="30"/>
                                 </variation>
                             </textField>
@@ -270,7 +270,7 @@
                                 <state key="normal" title="Confirm Pickup Order">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="126" y="474" width="149" height="30"/>
                                 </variation>
                                 <connections>
@@ -280,11 +280,11 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBa-fe-RDd">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="52" y="169" width="297" height="306"/>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 </variation>
                             </textView>
                         </subviews>
@@ -318,23 +318,23 @@
                                 <exclude reference="nBa-fe-RDd"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="dC2-bh-ZkA"/>
-                                <exclude reference="eWK-mK-ri2"/>
-                                <exclude reference="0lP-8I-IzO"/>
-                                <exclude reference="JiN-6d-3wI"/>
-                                <exclude reference="6dd-nN-wKu"/>
-                                <exclude reference="SWB-zu-Uwe"/>
-                                <exclude reference="dG8-WH-w4W"/>
                                 <exclude reference="O2Y-Rv-YZP"/>
                                 <exclude reference="QUu-V5-TNb"/>
                                 <exclude reference="iOS-C3-RFk"/>
                                 <exclude reference="MHa-fg-LrT"/>
                                 <exclude reference="ixb-ic-Ysh"/>
                                 <exclude reference="sjp-Z4-wWi"/>
+                                <exclude reference="dC2-bh-ZkA"/>
+                                <exclude reference="eWK-mK-ri2"/>
+                                <exclude reference="0lP-8I-IzO"/>
+                                <exclude reference="JiN-6d-3wI"/>
                                 <exclude reference="4S1-FV-11W"/>
                                 <exclude reference="CUL-d5-gml"/>
                                 <exclude reference="NNG-Nd-hwS"/>
                                 <exclude reference="kL7-RH-iTx"/>
+                                <exclude reference="6dd-nN-wKu"/>
+                                <exclude reference="SWB-zu-Uwe"/>
+                                <exclude reference="dG8-WH-w4W"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -349,23 +349,23 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="dC2-bh-ZkA"/>
-                                <include reference="eWK-mK-ri2"/>
-                                <include reference="0lP-8I-IzO"/>
-                                <include reference="JiN-6d-3wI"/>
-                                <include reference="6dd-nN-wKu"/>
-                                <include reference="SWB-zu-Uwe"/>
-                                <include reference="dG8-WH-w4W"/>
                                 <include reference="O2Y-Rv-YZP"/>
                                 <include reference="QUu-V5-TNb"/>
                                 <include reference="iOS-C3-RFk"/>
                                 <include reference="MHa-fg-LrT"/>
                                 <include reference="ixb-ic-Ysh"/>
                                 <include reference="sjp-Z4-wWi"/>
+                                <include reference="dC2-bh-ZkA"/>
+                                <include reference="eWK-mK-ri2"/>
+                                <include reference="0lP-8I-IzO"/>
+                                <include reference="JiN-6d-3wI"/>
                                 <include reference="4S1-FV-11W"/>
                                 <include reference="CUL-d5-gml"/>
                                 <include reference="NNG-Nd-hwS"/>
                                 <include reference="kL7-RH-iTx"/>
+                                <include reference="6dd-nN-wKu"/>
+                                <include reference="SWB-zu-Uwe"/>
+                                <include reference="dG8-WH-w4W"/>
                             </mask>
                         </variation>
                     </view>

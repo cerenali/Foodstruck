@@ -32,6 +32,7 @@
     cartButton.action = @selector(segueToCart);
     
     self.navigationItem.rightBarButtonItem = cartButton;
+    self.navigationItem.title=@"Order";
 }
 
 -(void)segueToCart {

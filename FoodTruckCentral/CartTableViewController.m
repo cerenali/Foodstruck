@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title=@"Cart";
     if (!self.cartArr)
         self.cartArr = [[NSMutableArray alloc] init];
 }

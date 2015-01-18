@@ -38,6 +38,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    self.navigationItem.title=@"Delivery";
 }
 
 - (void)didReceiveMemoryWarning {

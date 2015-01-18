@@ -48,6 +48,8 @@
     manifest = [manifest stringByAppendingString:[NSString stringWithFormat:@"\nTotal: $%.2f",[self calculateTotalPrice]]];
     
     self.manifestView.text = manifest;
+    
+    self.navigationItem.title=@"Pickup";
 }
 
 -(float)calculateTotalPrice {
