@@ -139,28 +139,26 @@
     
     //Create Delivery
     NSString *url = @"https://api.postmates.com/v1/customers/cus_KASCAdgaCzH92F/deliveries";
-    NSString *manifest=@"kittens";
-    NSString *pickup_name=@"Joe";
-    NSString *pickup_address=@"4400 Spruce St, Philadelphia, PA";
-    NSString *pickup_phone_number=@"+15162202837";
-    NSString *pickup_business_name=@"";
-    NSString *pickup_notes=@"";
-    NSString *dropoff_name=@"Joe";
-    NSString *dropoff_address=@"3600 Spruce St, Philadelphia, PA";
-    NSString *dropoff_phone_number=@"+15555555555";
-    NSString *dropoff_business_name=@"";
-    NSString *dropoff_notes=@"";
+    
+    NSString *manifest=@"";
+    for(NSDictionary*dict in self.cartArr) {
+        [manifest stringByAppendingString:dict.allKeys[0]];
+        [manifest stringByAppendingString:@"\n"];
+    }
+    
+    NSString *pickup_name=self.truckName;
+    NSString *pickup_address=[NSString stringWithFormat:@"%f,%f",self.truckCoords.latitude,self.truckCoords.longitude];
+    NSString *pickup_phone_number=self.truckPhone;
+    NSString *dropoff_name=self.nameTextField.text;
+    NSString *dropoff_address=deliveryAddress;
+    NSString *dropoff_phone_number=self.phoneTextField.text;
     [data setObject:manifest forKey:@"manifest"];
     [data setObject:pickup_name forKey:@"pickup_name"];
     [data setObject:pickup_address forKey:@"pickup_address"];
     [data setObject:pickup_phone_number forKey:@"pickup_phone_number"];
-    [data setObject:pickup_business_name forKey:@"pickup_business_name"];
-    [data setObject:pickup_notes forKey:@"pickup_notes"];
     [data setObject:dropoff_name forKey:@"dropoff_name"];
     [data setObject:dropoff_address forKey:@"dropoff_address"];
     [data setObject:dropoff_phone_number forKey:@"dropoff_phone_number"];
-    [data setObject:dropoff_business_name forKey:@"dropoff_business_name"];
-    [data setObject:dropoff_notes forKey:@"dropoff_notes"];
     
     NSString *post = [self createPostStringFromDictionary:data];
     NSLog(@"%@", post);
