@@ -78,6 +78,7 @@
     }
     
     if (indexPath.section == 0) { // info section
+        cell.detailTextLabel.text = @"";
         if (indexPath.row == 0) {
             cell.textLabel.text = self.truck.name;
         } else if (indexPath.row == 1) {

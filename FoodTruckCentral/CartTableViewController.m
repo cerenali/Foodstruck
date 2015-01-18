@@ -71,12 +71,17 @@
         NSLog(@"error: cart tableview cell not configured");
     }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     if (indexPath.section == 0) {
         if (indexPath.row == [self.cartArr count]) { // last row: display total
             cell.textLabel.text = @"Total";
             float totalPrice = [self calculateTotalPrice];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", totalPrice];
-            cell.backgroundColor = [UIColor lightGrayColor];
+            
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.detailTextLabel.textColor = [UIColor whiteColor];
+            cell.backgroundColor = [UIColor darkGrayColor];
         } else {
             NSDictionary *foodDict = [self.cartArr objectAtIndex:indexPath.row];
             NSString *itemName = [[foodDict allKeys] objectAtIndex:0];
