@@ -17,6 +17,7 @@
     NSMutableDictionary *dictionary;
     BOOL hasQuote;
     NSString *deliveryAddress;
+    BOOL deliveryRequestSuccess;
 }
 
 - (IBAction)getQuote:(id)sender {
@@ -30,6 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     hasQuote = NO;
+    deliveryRequestSuccess = NO;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -67,39 +69,41 @@
 }
 
 -(void)getQuoteFromAddress:(NSString*)pickupAddress To:(NSString*)dropoffAddress {
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
-    
-    //Get Quote
-    NSString *url = @"https://api.postmates.com/v1/customers/cus_KASCAdgaCzH92F/delivery_quotes";
-    NSString *pickup_address = pickupAddress;
-    NSString *dropoff_address = dropoffAddress;
-    [data setObject:pickup_address forKey:@"pickup_address"];
-    [data setObject:dropoff_address forKey:@"dropoff_address"];
-    
-    NSString *post = [self createPostStringFromDictionary:data];
-    NSLog(@"%@", post);
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody:postData];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    
-    NSString *authStr = [NSString stringWithFormat:@"%@:%@", @"92811ee4-a36f-42a3-b8d6-541dfd4944be", @""];
-    NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
-    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
-    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
-    
-    receivedData = [NSMutableData dataWithCapacity: 0];
-    
-    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
-    if (!theConnection) {
-        NSLog(@"Error connecting");
+    if(!([self.nameTextField.text length] == 0) && !([self.phoneTextField.text length] == 0) && !([self.addressTextField.text length] == 0)){
+        NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+        
+        //Get Quote
+        NSString *url = @"https://api.postmates.com/v1/customers/cus_KASCAdgaCzH92F/delivery_quotes";
+        NSString *pickup_address = pickupAddress;
+        NSString *dropoff_address = dropoffAddress;
+        [data setObject:pickup_address forKey:@"pickup_address"];
+        [data setObject:dropoff_address forKey:@"dropoff_address"];
+        
+        NSString *post = [self createPostStringFromDictionary:data];
+        NSLog(@"%@", post);
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:url]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setHTTPBody:postData];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        
+        
+        NSString *authStr = [NSString stringWithFormat:@"%@:%@", @"92811ee4-a36f-42a3-b8d6-541dfd4944be", @""];
+        NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
+        NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
+        [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+        
+        receivedData = [NSMutableData dataWithCapacity: 0];
+        
+        NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
+        if (!theConnection) {
+            NSLog(@"Error connecting");
+        }
     }
 }
 
@@ -133,6 +137,31 @@
         self.totalLabel.text = [NSString stringWithFormat:@"Total: %@", totalPrice];
         
         hasQuote = YES;
+    } else if ([[dictionary objectForKey:@"kind"] isEqualToString:@"delivery"]) {
+        deliveryRequestSuccess = YES;
+        
+    } else if ([[dictionary objectForKey:@"kind"] isEqualToString:@"error"]) {
+        if ([[dictionary objectForKey:@"code"] isEqualToString:@"invalid_params"]) {
+            NSDictionary *params = [dictionary objectForKey:@"params"];
+            NSString *wrongParam = params.allKeys[0];
+            if([wrongParam isEqualToString:@"dropoff_phone_number"]) {
+                /*
+                 ALERT THAT "Phone numbers must be in the format XXX-XXX-XXXX."
+                 */
+            }
+        } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"address_undeliverable"]) {
+            /*
+             ALERT THAT "Please enter a valid address."
+             */
+        } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"address_undeliverable"]) {
+            /*
+             ALERT THAT "Please enter a valid address."
+             */
+        } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"unknown"]) {
+            /*
+             ALERT THAT "Unknown error. Please make sure all fields are valid."
+             */
+        }
     }
 }
 
@@ -145,57 +174,63 @@
     return total;
 }
 - (IBAction)submitOrder:(id)sender {
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    NSString *errorMessage = [[NSString alloc] init];
     
-    //Create Delivery
-    NSString *url = @"https://api.postmates.com/v1/customers/cus_KASCAdgaCzH92F/deliveries";
-    
-    NSString *manifest=@"";
-    for(NSDictionary*dict in self.cartArr) {
-        [manifest stringByAppendingString:dict.allKeys[0]];
-        [manifest stringByAppendingString:@"\n"];
+    if(!([self.nameTextField.text length] == 0) && !([self.phoneTextField.text length] == 0) && !([self.addressTextField.text length] == 0)){
+        NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+        //Create Delivery
+        NSString *url = @"https://api.postmates.com/v1/customers/cus_KASCAdgaCzH92F/deliveries";
+        
+        NSString *manifest=@"";
+        for(NSDictionary*dict in self.cartArr) {
+            [manifest stringByAppendingString:dict.allKeys[0]];
+            [manifest stringByAppendingString:@"\n"];
+        }
+        
+        NSString *pickup_name=self.truckName;
+        NSString *pickup_address=[NSString stringWithFormat:@"%f,%f",self.truckCoords.latitude,self.truckCoords.longitude];
+        NSString *pickup_phone_number=self.truckPhone;
+        NSString *dropoff_name=self.nameTextField.text;
+        NSString *dropoff_address=deliveryAddress;
+        NSString *dropoff_phone_number=self.phoneTextField.text;
+        [data setObject:manifest forKey:@"manifest"];
+        [data setObject:pickup_name forKey:@"pickup_name"];
+        [data setObject:pickup_address forKey:@"pickup_address"];
+        [data setObject:pickup_phone_number forKey:@"pickup_phone_number"];
+        [data setObject:dropoff_name forKey:@"dropoff_name"];
+        [data setObject:dropoff_address forKey:@"dropoff_address"];
+        [data setObject:dropoff_phone_number forKey:@"dropoff_phone_number"];
+        
+        NSString *post = [self createPostStringFromDictionary:data];
+        NSLog(@"%@", post);
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:url]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setHTTPBody:postData];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        
+        
+        NSString *authStr = [NSString stringWithFormat:@"%@:%@", @"92811ee4-a36f-42a3-b8d6-541dfd4944be", @""];
+        NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
+        NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
+        [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+        
+        receivedData = [NSMutableData dataWithCapacity: 0];
+        
+        NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
+        if (!theConnection) {
+            NSLog(@"Error connecting");
+        }
+    } else {
+        /*
+            ALERT THAT "All fields must be filled."
+         */
     }
-    
-    NSString *pickup_name=self.truckName;
-    NSString *pickup_address=[NSString stringWithFormat:@"%f,%f",self.truckCoords.latitude,self.truckCoords.longitude];
-    NSString *pickup_phone_number=self.truckPhone;
-    NSString *dropoff_name=self.nameTextField.text;
-    NSString *dropoff_address=deliveryAddress;
-    NSString *dropoff_phone_number=self.phoneTextField.text;
-    [data setObject:manifest forKey:@"manifest"];
-    [data setObject:pickup_name forKey:@"pickup_name"];
-    [data setObject:pickup_address forKey:@"pickup_address"];
-    [data setObject:pickup_phone_number forKey:@"pickup_phone_number"];
-    [data setObject:dropoff_name forKey:@"dropoff_name"];
-    [data setObject:dropoff_address forKey:@"dropoff_address"];
-    [data setObject:dropoff_phone_number forKey:@"dropoff_phone_number"];
-    
-    NSString *post = [self createPostStringFromDictionary:data];
-    NSLog(@"%@", post);
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody:postData];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    
-    NSString *authStr = [NSString stringWithFormat:@"%@:%@", @"92811ee4-a36f-42a3-b8d6-541dfd4944be", @""];
-    NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
-    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
-    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
-    
-    receivedData = [NSMutableData dataWithCapacity: 0];
-    
-    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
-    if (!theConnection) {
-        NSLog(@"Error connecting");
-    }
-
 }
 
 /*
