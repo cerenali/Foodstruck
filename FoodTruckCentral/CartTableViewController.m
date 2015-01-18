@@ -7,7 +7,7 @@
 //
 
 #import "CartTableViewController.h"
-#import "CheckoutViewController.h"
+#import "PostmatesCheckoutViewController.h"
 
 @interface CartTableViewController ()
 
@@ -19,16 +19,6 @@
     [super viewDidLoad];
     if (!self.cartArr)
         self.cartArr = [[NSMutableArray alloc] init];
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
-                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(segueToCheckout)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)segueToCheckout {
@@ -40,6 +30,12 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +53,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0) { // food section
-        return [self.cartArr count] + 1;
+        return [self.cartArr count] + 1; // one extra row for total
     }
     
     return 0;
@@ -75,7 +71,7 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == [self.cartArr count]) { // last row: display total
-            cell.textLabel.text = @"Total";
+            cell.textLabel.text = @"Subtotal";
             float totalPrice = [self calculateTotalPrice];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", totalPrice];
             
@@ -149,7 +145,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"toCheckout"]) {
-        CheckoutViewController *destination = [segue destinationViewController];
+        PostmatesCheckoutViewController *destination = [segue destinationViewController];
         destination.cartArr = self.cartArr;
         destination.truckCoords = self.truckCoords;
         destination.truckPhone = self.truckPhone;
