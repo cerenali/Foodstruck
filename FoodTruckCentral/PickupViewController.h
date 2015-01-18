@@ -10,7 +10,12 @@
 
 @interface PickupViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *date;
+@property (weak, nonatomic) IBOutlet UITextField *time;
+@property (weak, nonatomic) IBOutlet UITextView *manifestView;
+
 @property NSString *truckPhone;
 @property NSArray *cartArr;
+@property NSString *truckName;
 
 @end

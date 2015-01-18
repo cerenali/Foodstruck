@@ -119,6 +119,12 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [self.cartArr removeObjectAtIndex:indexPath.row];
+        float totalPrice = [self calculateTotalPrice];
+        NSArray *indexPaths = [tableView indexPathsForVisibleRows];
+        NSIndexPath *lastRowIndexPath = indexPaths[[indexPaths count]-1];
+        [tableView cellForRowAtIndexPath:lastRowIndexPath].detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", totalPrice];
+        
+        //!!!!!!
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -155,8 +161,7 @@
     } else if ([[segue identifier] isEqualToString:@"toPickupView"]) {
         PostmatesCheckoutViewController *destination = [segue destinationViewController];
         destination.cartArr = self.cartArr;
-        
-        destination.cartArr = self.cartArr;
+        destination.truckName = self.truckName;
         destination.truckPhone = self.truckPhone;
     }
 }

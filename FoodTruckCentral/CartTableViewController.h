@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 
 @interface CartTableViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSMutableArray *cartArr;
 @property CLLocationCoordinate2D truckCoords;

@@ -82,7 +82,7 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = self.truck.name;
         } else if (indexPath.row == 1) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%.2f, %.2f",self.truck.coords.latitude, self.truck.coords.longitude];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", self.truck.cellnum];
         }
     } else { // food section
         NSArray *menuKeys = [self.truck.menu allKeys];
@@ -113,7 +113,14 @@
         NSArray *menuKeys = [self.truck.menu allKeys];
         NSArray *foodDictArr = [self.truck.menu objectForKey:[menuKeys objectAtIndex:indexPath.section-1]];
         NSDictionary *foodDict = [foodDictArr objectAtIndex:indexPath.row];
-        [self.cartArr addObject:foodDict];
+        NSString *dishprice = [foodDict objectForKey:foodDict.allKeys[0]];
+        NSString *dishtype = foodDict.allKeys[0];
+        NSString *dishsection = [menuKeys objectAtIndex:indexPath.section-1];
+        NSString *dishname = [NSString stringWithFormat:@"%@ - %@",dishsection,dishtype];
+        NSDictionary *dict = @{
+                               dishname:dishprice
+                               };
+        [self.cartArr addObject:dict];
     }
 }
 

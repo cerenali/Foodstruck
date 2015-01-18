@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -209,6 +209,9 @@
                         </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="PAX-ia-pgY" id="6Wf-rh-dPB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rH1-6q-J0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -223,13 +226,97 @@
                         <viewControllerLayoutGuide type="bottom" id="70q-kh-dhk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QuH-Z1-0gX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LPx-9r-L0B">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="212" y="93" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="le5-30-fK3">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="90" y="97" width="99" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkB-LG-ZW3">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="89" y="135" width="100" height="21"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZMV-6o-atT">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="212" y="131" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFO-rQ-Pt4">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Confirm Pickup Order">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="126" y="474" width="149" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="confirmOrderPickup:" destination="AjH-dJ-aPW" eventType="touchUpInside" id="lbv-wa-42R"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBa-fe-RDd">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="52" y="169" width="297" height="306"/>
+                                </variation>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="LPx-9r-L0B"/>
+                                <exclude reference="le5-30-fK3"/>
+                                <exclude reference="lkB-LG-ZW3"/>
+                                <exclude reference="ZMV-6o-atT"/>
+                                <exclude reference="tFO-rQ-Pt4"/>
+                                <exclude reference="nBa-fe-RDd"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="LPx-9r-L0B"/>
+                                <include reference="le5-30-fK3"/>
+                                <include reference="lkB-LG-ZW3"/>
+                                <include reference="ZMV-6o-atT"/>
+                                <include reference="tFO-rQ-Pt4"/>
+                                <include reference="nBa-fe-RDd"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="date" destination="LPx-9r-L0B" id="tOh-hZ-fcP"/>
+                        <outlet property="manifestView" destination="nBa-fe-RDd" id="gDu-nr-RXH"/>
+                        <outlet property="time" destination="ZMV-6o-atT" id="TYJ-7X-ztR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAm-0S-Azx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3150" y="2141.25"/>
+            <point key="canvasLocation" x="3150" y="2141"/>
         </scene>
         <!--Postmates Checkout View Controller-->
         <scene sceneID="DdH-bC-kM1">
@@ -248,7 +335,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="52" y="226" width="152" height="21"/>
                                 </variation>
                             </label>
@@ -257,7 +344,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="74" y="260" width="130" height="21"/>
                                 </variation>
                             </label>
@@ -266,7 +353,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="162" y="295" width="42" height="21"/>
                                 </variation>
                             </label>
@@ -274,7 +361,7 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="16" y="119" width="368" height="30"/>
                                 </variation>
                             </textField>
@@ -283,7 +370,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="16" y="90" width="137" height="21"/>
                                 </variation>
                             </label>
@@ -292,7 +379,7 @@
                                 <state key="normal" title="Get Quote">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="313" y="157" width="71" height="30"/>
                                 </variation>
                                 <connections>
@@ -304,7 +391,7 @@
                                 <state key="normal" title="Submit Postmates Order">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="104" y="431" width="170" height="30"/>
                                 </variation>
                                 <connections>
@@ -407,32 +494,32 @@
                                 <exclude reference="C4L-qG-PNc"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="LdG-kp-pFK"/>
+                                <exclude reference="nZv-qx-luj"/>
                                 <exclude reference="NOj-FX-pTf"/>
                                 <exclude reference="Wis-Ck-5ps"/>
-                                <exclude reference="5wb-8B-gID"/>
-                                <exclude reference="Q0W-NK-ql5"/>
-                                <exclude reference="dEd-jG-DYC"/>
-                                <exclude reference="YNm-RW-kJA"/>
-                                <exclude reference="ouX-2O-iDK"/>
+                                <exclude reference="575-Ns-KHc"/>
+                                <exclude reference="oQQ-44-jE3"/>
                                 <exclude reference="AgY-ea-Qrd"/>
                                 <exclude reference="Vsz-fS-d3Z"/>
                                 <exclude reference="sL8-fc-pJQ"/>
-                                <exclude reference="575-Ns-KHc"/>
-                                <exclude reference="oQQ-44-jE3"/>
+                                <exclude reference="Y0v-cl-MVV"/>
                                 <exclude reference="3gO-bm-UMY"/>
                                 <exclude reference="nJc-Xl-e0S"/>
+                                <exclude reference="3c0-03-gtx"/>
+                                <exclude reference="aw5-V1-Aat"/>
+                                <exclude reference="khp-lQ-wkJ"/>
+                                <exclude reference="tus-P4-XNt"/>
+                                <exclude reference="YNm-RW-kJA"/>
+                                <exclude reference="ouX-2O-iDK"/>
+                                <exclude reference="5wb-8B-gID"/>
+                                <exclude reference="Q0W-NK-ql5"/>
+                                <exclude reference="dEd-jG-DYC"/>
                                 <exclude reference="2px-Er-aPN"/>
                                 <exclude reference="QlT-iH-Ld9"/>
                                 <exclude reference="qWV-hJ-mcy"/>
                                 <exclude reference="wDm-G9-1ti"/>
-                                <exclude reference="Y0v-cl-MVV"/>
-                                <exclude reference="LdG-kp-pFK"/>
-                                <exclude reference="nZv-qx-luj"/>
-                                <exclude reference="khp-lQ-wkJ"/>
-                                <exclude reference="tus-P4-XNt"/>
                                 <exclude reference="iQ8-gT-F66"/>
-                                <exclude reference="3c0-03-gtx"/>
-                                <exclude reference="aw5-V1-Aat"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -454,32 +541,32 @@
                                 <include reference="C4L-qG-PNc"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="LdG-kp-pFK"/>
+                                <include reference="nZv-qx-luj"/>
                                 <include reference="NOj-FX-pTf"/>
                                 <include reference="Wis-Ck-5ps"/>
-                                <include reference="5wb-8B-gID"/>
-                                <include reference="Q0W-NK-ql5"/>
-                                <include reference="dEd-jG-DYC"/>
-                                <include reference="YNm-RW-kJA"/>
-                                <include reference="ouX-2O-iDK"/>
+                                <include reference="575-Ns-KHc"/>
+                                <include reference="oQQ-44-jE3"/>
                                 <include reference="AgY-ea-Qrd"/>
                                 <include reference="Vsz-fS-d3Z"/>
                                 <include reference="sL8-fc-pJQ"/>
-                                <include reference="575-Ns-KHc"/>
-                                <include reference="oQQ-44-jE3"/>
+                                <include reference="Y0v-cl-MVV"/>
                                 <include reference="3gO-bm-UMY"/>
                                 <include reference="nJc-Xl-e0S"/>
+                                <include reference="3c0-03-gtx"/>
+                                <include reference="aw5-V1-Aat"/>
+                                <include reference="khp-lQ-wkJ"/>
+                                <include reference="tus-P4-XNt"/>
+                                <include reference="YNm-RW-kJA"/>
+                                <include reference="ouX-2O-iDK"/>
+                                <include reference="5wb-8B-gID"/>
+                                <include reference="Q0W-NK-ql5"/>
+                                <include reference="dEd-jG-DYC"/>
                                 <include reference="2px-Er-aPN"/>
                                 <include reference="QlT-iH-Ld9"/>
                                 <include reference="qWV-hJ-mcy"/>
                                 <include reference="wDm-G9-1ti"/>
-                                <include reference="Y0v-cl-MVV"/>
-                                <include reference="LdG-kp-pFK"/>
-                                <include reference="nZv-qx-luj"/>
-                                <include reference="khp-lQ-wkJ"/>
-                                <include reference="tus-P4-XNt"/>
                                 <include reference="iQ8-gT-F66"/>
-                                <include reference="3c0-03-gtx"/>
-                                <include reference="aw5-V1-Aat"/>
                             </mask>
                         </variation>
                     </view>
@@ -509,7 +596,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kOy-ns-5BY">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kOy-ns-5BY">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </mapView>
                         </subviews>
