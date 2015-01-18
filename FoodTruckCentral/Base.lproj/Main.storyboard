@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bZ4-EU-541">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -449,18 +449,6 @@
                                     <rect key="frame" x="162" y="295" width="42" height="21"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wS5-1F-sZM">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Submit Postmates Order">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="104" y="431" width="170" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="submitOrder:" destination="IYw-X0-eby" eventType="touchUpInside" id="6F4-SU-QCW"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xgC-rN-kbc">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -490,17 +478,63 @@
                                     <action selector="getQuote:" destination="IYw-X0-eby" eventType="touchUpInside" id="ehC-n3-YRB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wS5-1F-sZM">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Submit Postmates Order">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="104" y="431" width="170" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="submitOrder:" destination="IYw-X0-eby" eventType="touchUpInside" id="6F4-SU-QCW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cTO-BP-G2n" firstAttribute="top" secondItem="wS5-1F-sZM" secondAttribute="bottom" constant="25" id="3c0-03-gtx"/>
+                            <constraint firstItem="xgC-rN-kbc" firstAttribute="leading" secondItem="eXL-W6-gkV" secondAttribute="leadingMargin" id="5be-3B-dfd"/>
+                            <constraint firstItem="2DU-NP-On0" firstAttribute="leading" secondItem="eXL-W6-gkV" secondAttribute="leadingMargin" constant="58" id="8px-H7-cm7"/>
+                            <constraint firstItem="xgC-rN-kbc" firstAttribute="trailing" secondItem="eXL-W6-gkV" secondAttribute="trailingMargin" id="MLD-3i-mrc"/>
+                            <constraint firstItem="34M-yB-9cN" firstAttribute="leading" secondItem="eXL-W6-gkV" secondAttribute="leadingMargin" id="NOj-FX-pTf"/>
+                            <constraint firstItem="PJI-Yl-xMd" firstAttribute="top" secondItem="xgC-rN-kbc" secondAttribute="bottom" constant="8" id="SW3-Za-uVB"/>
+                            <constraint firstItem="fWk-fX-mMh" firstAttribute="leading" secondItem="eXL-W6-gkV" secondAttribute="leadingMargin" constant="146" id="W9C-zc-wOP"/>
+                            <constraint firstItem="34M-yB-9cN" firstAttribute="top" secondItem="3Jz-hs-8BK" secondAttribute="bottom" constant="26" id="Wis-Ck-5ps"/>
+                            <constraint firstItem="MtY-4n-Qzb" firstAttribute="leading" secondItem="eXL-W6-gkV" secondAttribute="leadingMargin" constant="36" id="cuU-JY-hOm"/>
+                            <constraint firstItem="fWk-fX-mMh" firstAttribute="top" secondItem="2DU-NP-On0" secondAttribute="bottom" constant="14" id="eWN-yO-GRX"/>
+                            <constraint firstItem="PJI-Yl-xMd" firstAttribute="trailing" secondItem="eXL-W6-gkV" secondAttribute="trailingMargin" id="gbI-Hl-557"/>
+                            <constraint firstItem="wS5-1F-sZM" firstAttribute="leading" secondItem="eXL-W6-gkV" secondAttribute="leadingMargin" constant="94" id="iQ8-gT-F66"/>
+                            <constraint firstItem="MtY-4n-Qzb" firstAttribute="top" secondItem="PJI-Yl-xMd" secondAttribute="bottom" constant="39" id="jyy-Tv-Ppb"/>
+                            <constraint firstItem="xgC-rN-kbc" firstAttribute="top" secondItem="34M-yB-9cN" secondAttribute="bottom" constant="8" id="u12-Zy-5Hs"/>
+                            <constraint firstItem="2DU-NP-On0" firstAttribute="top" secondItem="MtY-4n-Qzb" secondAttribute="bottom" constant="13" id="uV4-ga-MJO"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="MtY-4n-Qzb"/>
                                 <exclude reference="2DU-NP-On0"/>
                                 <exclude reference="fWk-fX-mMh"/>
-                                <exclude reference="wS5-1F-sZM"/>
                                 <exclude reference="xgC-rN-kbc"/>
                                 <exclude reference="34M-yB-9cN"/>
                                 <exclude reference="PJI-Yl-xMd"/>
+                                <exclude reference="wS5-1F-sZM"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="NOj-FX-pTf"/>
+                                <exclude reference="Wis-Ck-5ps"/>
+                                <exclude reference="5be-3B-dfd"/>
+                                <exclude reference="MLD-3i-mrc"/>
+                                <exclude reference="u12-Zy-5Hs"/>
+                                <exclude reference="cuU-JY-hOm"/>
+                                <exclude reference="jyy-Tv-Ppb"/>
+                                <exclude reference="8px-H7-cm7"/>
+                                <exclude reference="uV4-ga-MJO"/>
+                                <exclude reference="W9C-zc-wOP"/>
+                                <exclude reference="eWN-yO-GRX"/>
+                                <exclude reference="SW3-Za-uVB"/>
+                                <exclude reference="gbI-Hl-557"/>
+                                <exclude reference="iQ8-gT-F66"/>
+                                <exclude reference="3c0-03-gtx"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -508,10 +542,29 @@
                                 <include reference="MtY-4n-Qzb"/>
                                 <include reference="2DU-NP-On0"/>
                                 <include reference="fWk-fX-mMh"/>
-                                <include reference="wS5-1F-sZM"/>
                                 <include reference="xgC-rN-kbc"/>
                                 <include reference="34M-yB-9cN"/>
                                 <include reference="PJI-Yl-xMd"/>
+                                <include reference="wS5-1F-sZM"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="NOj-FX-pTf"/>
+                                <include reference="Wis-Ck-5ps"/>
+                                <include reference="5be-3B-dfd"/>
+                                <include reference="MLD-3i-mrc"/>
+                                <include reference="u12-Zy-5Hs"/>
+                                <include reference="cuU-JY-hOm"/>
+                                <include reference="jyy-Tv-Ppb"/>
+                                <include reference="8px-H7-cm7"/>
+                                <include reference="uV4-ga-MJO"/>
+                                <include reference="W9C-zc-wOP"/>
+                                <include reference="eWN-yO-GRX"/>
+                                <include reference="SW3-Za-uVB"/>
+                                <include reference="gbI-Hl-557"/>
+                                <include reference="iQ8-gT-F66"/>
+                                <include reference="3c0-03-gtx"/>
                             </mask>
                         </variation>
                     </view>
