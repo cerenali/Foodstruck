@@ -161,6 +161,7 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
         if ([[self.dictionary objectForKey:@"status"] isEqualToString:@"delivered"]) {
             [self cancelCourierPollingTimer];
             [self showAlertWithMessage:@"Your order was delivered!"];
+            //segue to original map view!!#?!!@#!???
         } else if (!([self.dictionary objectForKey:@"courier"] == [NSNull null])) {
             self.courierCoords = [self getCoordsWithKey:@"courier"];
             NSString *ETAstr = [@"ETA: " stringByAppendingString:[self dateFromISO8601DateString:[self.dictionary objectForKey:@"dropoff_eta"]]];
