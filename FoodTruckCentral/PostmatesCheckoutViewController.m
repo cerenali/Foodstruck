@@ -23,6 +23,7 @@
 - (IBAction)getQuote:(id)sender {
     NSString *dropoffAddress = self.addressTextField.text;
     deliveryAddress = self.addressTextField.text;
+    NSLog(@"#2 truckCoords: %f, %f", self.truckCoords.latitude, self.truckCoords.longitude);
     NSString *pickupAddress = [NSString stringWithFormat:@"%f,%f", self.truckCoords.latitude, self.truckCoords.longitude];
     [self getQuoteFromAddress:pickupAddress To:dropoffAddress];
 }
@@ -104,6 +105,8 @@
         if (!theConnection) {
             NSLog(@"Error connecting");
         }
+    } else {
+        [self showAlertWithMessage:@"Fields cannot be empty"];
     }
 }
 
@@ -123,8 +126,6 @@
     NSLog(@"returned data");
     
     if ([[dictionary objectForKey:@"kind"] isEqualToString:@"delivery_quote"]) {
-        
-        
         NSString *priceString = [dictionary objectForKey:@"fee"];
         NSString *fee = [NSString stringWithFormat:@"$%.2f", [priceString doubleValue]];
         self.deliveryChargeLabel.text = [NSString stringWithFormat:@"Charge for Delivery: %@", fee];
@@ -148,21 +149,50 @@
                 /*
                  ALERT THAT "Phone numbers must be in the format XXX-XXX-XXXX."
                  */
+                [self showAlertWithMessage:@"Phone numbers must be in the format XXX-XXX-XXXX."];
             }
-        } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"address_undeliverable"]) {
+        } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"address_undeliverable"] ||
+                   [[dictionary objectForKey:@"code"] isEqualToString:@"unknown_location"]) {
             /*
              ALERT THAT "Please enter a valid address."
              */
-        } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"address_undeliverable"]) {
-            /*
-             ALERT THAT "Please enter a valid address."
-             */
+            [self showAlertWithMessage:@"Please enter a valid address"];
         } else if ([[dictionary objectForKey:@"code"] isEqualToString:@"unknown"]) {
             /*
              ALERT THAT "Unknown error. Please make sure all fields are valid."
              */
+            [self showAlertWithMessage:@"Unknown error. Please make sure all fields are valid."];
         }
     }
+}
+
+-(void) showAlertWithMessage:(NSString *)msg {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Error"
+                                  message:msg
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(float)calculateSubtotalPrice{
@@ -176,7 +206,7 @@
 - (IBAction)submitOrder:(id)sender {
     NSString *errorMessage = [[NSString alloc] init];
     
-    if(!([self.nameTextField.text length] == 0) && !([self.phoneTextField.text length] == 0) && !([self.addressTextField.text length] == 0)){
+    if(!([self.nameTextField.text length] == 0) && !([self.phoneTextField.text length] == 0) && !([self.addressTextField.text length] == 0) && hasQuote){
         NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
         //Create Delivery
         NSString *url = @"https://api.postmates.com/v1/customers/cus_KASCAdgaCzH92F/deliveries";
@@ -226,10 +256,13 @@
         if (!theConnection) {
             NSLog(@"Error connecting");
         }
+    } else if (hasQuote == NO) {
+        [self showAlertWithMessage:@"Please get quote first"];
     } else {
         /*
             ALERT THAT "All fields must be filled."
          */
+        [self showAlertWithMessage:@"Fields cannot be empty"];
     }
 }
 

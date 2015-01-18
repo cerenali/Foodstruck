@@ -147,6 +147,9 @@
     if ([[segue identifier] isEqualToString:@"toCheckout"]) {
         PostmatesCheckoutViewController *destination = [segue destinationViewController];
         destination.cartArr = self.cartArr;
+        
+        NSLog(@"truckCoords: %f, %f", self.truckCoords.latitude, self.truckCoords.longitude);
+        
         destination.truckCoords = self.truckCoords;
         destination.truckPhone = self.truckPhone;
         destination.truckName = self.truckName;

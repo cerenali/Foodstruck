@@ -200,7 +200,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="4n7-Wp-Uak"/>
                         <barButtonItem title="Delivery" id="NuC-yH-9T2">
                             <connections>
-                                <segue destination="IYw-X0-eby" kind="show" id="7eD-nw-kBQ"/>
+                                <segue destination="IYw-X0-eby" kind="show" identifier="toCheckout" id="7eD-nw-kBQ"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
