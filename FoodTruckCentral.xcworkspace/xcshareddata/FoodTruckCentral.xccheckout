@@ -12,6 +12,8 @@
 	<dict>
 		<key>94C7B6F3623F18BB07B17F3B52F3C2CBE36D9AEC</key>
 		<string>https://github.com/cerenali/FoodTruckCentral.git</string>
+		<key>CE4820E0913A6C8A594DD0191812355B98D21B99</key>
+		<string>https://github.com/josephcappadona/RedditImageScraper</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>FoodTruckCentral.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>94C7B6F3623F18BB07B17F3B52F3C2CBE36D9AEC</key>
 		<string>..</string>
+		<key>CE4820E0913A6C8A594DD0191812355B98D21B99</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/cerenali/FoodTruckCentral.git</string>
@@ -28,6 +32,14 @@
 	<string>94C7B6F3623F18BB07B17F3B52F3C2CBE36D9AEC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CE4820E0913A6C8A594DD0191812355B98D21B99</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

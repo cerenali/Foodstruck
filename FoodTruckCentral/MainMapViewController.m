@@ -73,6 +73,10 @@
     }];
     [self reloadAnnotations];
     
+    CLLocationCoordinate2D current = self.locationManager.location.coordinate;
+    [self.mapView setCenterCoordinate:current];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(current, 1000.0, 1000.0);
+    [self.mapView setRegion:region animated:YES];
 }
 
 -(void) reloadAnnotations {
@@ -130,9 +134,9 @@
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     CLLocationCoordinate2D location = self.mapView.userLocation.location.coordinate;
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location, 1000.0, 1000.0);
+    //MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location, 1000.0, 1000.0);
     
-    [self.mapView setRegion:region animated:YES];
+    //[self.mapView setRegion:region animated:YES];
 }
 
 #pragma mark - Navigation
