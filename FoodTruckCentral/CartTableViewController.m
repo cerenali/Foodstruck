@@ -9,7 +9,6 @@
 #import "CartTableViewController.h"
 #import "PostmatesCheckoutViewController.h"
 #import "PickupViewController.h"
-#import <ArtisanSDK/ArtisanSDK.h>
 
 @interface CartTableViewController ()
 
