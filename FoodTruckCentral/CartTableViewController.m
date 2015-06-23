@@ -9,6 +9,7 @@
 #import "CartTableViewController.h"
 #import "PostmatesCheckoutViewController.h"
 #import "PickupViewController.h"
+#import <ArtisanSDK/ArtisanSDK.h>
 
 @interface CartTableViewController ()
 
@@ -18,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title=@"Cart";
+    self.navigationItem.title = @"Cart";
     if (!self.cartArr)
         self.cartArr = [[NSMutableArray alloc] init];
 }

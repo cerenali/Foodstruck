@@ -22,21 +22,23 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
-    self.date.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.date.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    self.date.textAlignment = NSTextAlignmentLeft;
-    self.date.clearButtonMode = UITextFieldViewModeWhileEditing;
-    self.date.clearsOnBeginEditing = YES;
-    self.date.placeholder = @"1/17/15";
-    [self.date setEnabled:YES];
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    [datePicker setDate:[NSDate date]];
+    [datePicker addTarget:self action:@selector(updateDateTextField:) forControlEvents:UIControlEventValueChanged];
+    [datePicker setDatePickerMode:UIDatePickerModeDate];
+    [self.dateTextField setInputView:datePicker];
     
-    self.time.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.time.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    self.time.textAlignment = NSTextAlignmentLeft;
-    self.time.clearButtonMode = UITextFieldViewModeWhileEditing;
-    self.time.clearsOnBeginEditing = YES;
-    self.time.placeholder = @"7:30 AM";
-    [self.time setEnabled:YES];
+    UIDatePicker *timePicker = [[UIDatePicker alloc] init];
+    [timePicker setDate:[NSDate date]];
+    [timePicker addTarget:self action:@selector(updateTimeTextField:) forControlEvents:UIControlEventValueChanged];
+    [timePicker setDatePickerMode:UIDatePickerModeTime];
+    [self.timeTextField setInputView:timePicker];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM/dd/yyyy"];
+    self.dateTextField.text = [NSString stringWithFormat:@"%@",[dateFormat stringFromDate:[NSDate date]]];
+    [dateFormat setDateFormat:@"HH:mm a"];
+    self.timeTextField.text = [NSString stringWithFormat:@"%@",[dateFormat stringFromDate:[NSDate date]]];
     
     /* copy in manifest and pricing methods */
     NSString *manifest= [[NSString alloc] init];
@@ -48,8 +50,24 @@
     manifest = [manifest stringByAppendingString:[NSString stringWithFormat:@"\nTotal: $%.2f",[self calculateTotalPrice]]];
     
     self.manifestView.text = manifest;
+
+    self.navigationItem.title = @"Pickup";
+}
+
+-(void)updateDateTextField:(id)sender {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM/dd/yyyy"];
     
-    self.navigationItem.title=@"Pickup";
+    UIDatePicker *picker = (UIDatePicker*)self.dateTextField.inputView;
+    self.dateTextField.text = [NSString stringWithFormat:@"%@",[dateFormat stringFromDate:picker.date]];
+}
+
+-(void)updateTimeTextField:(id)sender {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"hh:mm a"];
+    
+    UIDatePicker *picker = (UIDatePicker*)self.timeTextField.inputView;
+    self.timeTextField.text = [NSString stringWithFormat:@"%@",[dateFormat stringFromDate:picker.date]];
 }
 
 -(float)calculateTotalPrice {
